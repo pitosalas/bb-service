@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="UserQueryFeed">
+
+  <typeAlias alias="userqueryfeed" type="com.salas.bbservice.domain.UserQueryFeed"/>
+
+  <insert id="insert" parameterClass="userqueryfeed">
+    INSERT INTO UserQueryFeeds (
+      userGuideId,
+      indx,
+      title,
+      queryType,
+      queryParam,
+      rating,
+      purgeLimit,
+      readArticlesKeys,
+      pinnedArticlesKeys,
+      viewType,
+      viewModeEnabled,
+      viewMode,
+      dedupEnabled,
+      dedupFrom,
+      dedupTo,
+      ascendingSorting,
+      updatePeriod
+    )
+    VALUES (
+      #userGuideId#,
+      #index#,
+      #title#,
+      #queryType#,
+      #queryParam#,
+      #rating#,
+      #limit#,
+      #readArticlesKeys#,
+      #pinnedArticlesKeys#,
+      #viewType#,
+      #viewModeEnabled#,
+      #viewMode#,
+      #dedupEnabled#,
+      #dedupFrom#,
+      #dedupTo#,
+      #ascendingSorting#,
+      #updatePeriod#
+    )
+    <selectKey resultClass="int" keyProperty="id">
+      SELECT LAST_INSERT_ID() as id
+    </selectKey>
+  </insert>
+
+  <delete id="delete" parameterClass="userqueryfeed">
+    DELETE FROM UserQueryFeeds
+    WHERE id = #id#
+  </delete>
+
+  <select id="findByUserGuideId" parameterClass="int" resultClass="userqueryfeed">
+    SELECT *, purgeLimit as 'limit', indx as 'index' FROM UserQueryFeeds WHERE userGuideId = #value# ORDER BY indx
+  </select>
+
+</sqlMap>

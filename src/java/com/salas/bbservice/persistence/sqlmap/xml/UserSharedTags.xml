@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="UserSharedTags">
+
+  <typeAlias alias="tags" type="com.salas.bbservice.domain.UserSharedTags"/>
+  <typeAlias alias="param" type="com.salas.bbservice.domain.dao.SharedTagsQueryParam"/>
+
+  <insert id="insert" parameterClass="tags">
+    INSERT INTO UserSharedTags (userId, url, feed, tags, description, extended)
+    VALUES (#userId#, #url#, #feed#, #tags#, #description#, #extended#)
+  </insert>
+
+  <delete id="delete" parameterClass="tags">
+    DELETE FROM UserSharedTags WHERE userId = #userId# AND url = #url#
+  </delete>
+
+  <select id="getLinkTags" parameterClass="param" resultClass="string">
+    SELECT tags FROM UserSharedTags WHERE userId != #userId# AND url = #url#
+  </select>
+
+</sqlMap>

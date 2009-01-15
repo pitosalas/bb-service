@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="UserPreference">
+
+  <typeAlias alias="userpref" type="com.salas.bbservice.domain.UserPreference"/>
+
+  <insert id="insert" parameterClass="userpref">
+    INSERT INTO UserPreferences (userId, name, value)
+    VALUES (#userId#, #name#, #value#)
+  </insert>
+
+  <delete id="delete" parameterClass="userpref">
+    DELETE FROM UserPreferences WHERE userId = #userId# AND name = #name#
+  </delete>
+
+  <update id="update" parameterClass="userpref">
+    UPDATE UserPreferences SET value = #value# WHERE userId = #userId# AND name = #name#
+  </update>
+
+  <select id="selectByUserId" parameterClass="int" resultClass="userpref">
+    SELECT * FROM UserPreferences WHERE userId = #value#
+  </select>
+
+</sqlMap>

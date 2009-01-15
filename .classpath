@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/java"/>
+	<classpathentry kind="src" path="src/test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/activation.jar"/>
+	<classpathentry kind="lib" path="lib/ibatis-common-2.jar"/>
+	<classpathentry kind="lib" path="lib/ibatis-dao-2.jar"/>
+	<classpathentry kind="lib" path="lib/ibatis-sqlmap-2.jar"/>
+	<classpathentry kind="lib" path="lib/mailapi.jar"/>
+	<classpathentry kind="lib" path="lib/smtp.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Pito Salas/.maven/repository/xmlrpc/jars/xmlrpc-1.2-b1.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Pito Salas/.maven/repository/jdom/jars/jdom-b10.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Pito Salas/.maven/repository/servletapi/jars/servletapi-2.4-20040521.jar"/>
+	<classpathentry kind="lib" path="C:/JavaWork/blogbridge/suplib/junit.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Pito Salas/.maven/repository/commons-collections/jars/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/informa.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

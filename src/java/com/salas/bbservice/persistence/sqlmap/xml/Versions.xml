@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Versions">
+
+  <typeAlias alias="version" type="com.salas.bbservice.domain.Version"/>
+  <typeAlias alias="change" type="com.salas.bbservice.domain.VersionChange"/>
+  <typeAlias alias="timeRange" type="com.salas.bbservice.domain.dao.TimeRange"/>
+
+  <insert id="addVersion" parameterClass="version">
+    INSERT INTO Versions (version, releaseTime, production)
+    VALUES (#version#, #releaseTime#, #production#)
+    <selectKey resultClass="int" keyProperty="id">
+      SELECT LAST_INSERT_ID() as id
+    </selectKey>
+  </insert>
+
+  <select id="getRecentVersion" parameterClass="string" resultClass="version">
+    SELECT * FROM Versions $value$ ORDER BY releaseTime DESC LIMIT 1
+  </select>
+
+  <delete id="removeVersion" parameterClass="int">
+    DELETE FROM Versions WHERE id = #value#
+  </delete>
+
+  <insert id="addVersionChange" parameterClass="change">
+    INSERT INTO VersionChanges (versionId, type, details)
+    VALUES (#versionId#, #type#, #details#)
+    <selectKey resultClass="int" keyProperty="id">
+      SELECT LAST_INSERT_ID() as id
+    </selectKey>
+  </insert>
+
+  <delete id="removeVersionChange" parameterClass="int">
+    DELETE FROM VersionChanges WHERE id = #value#
+  </delete>
+
+  <select id="listVersionChangesBetween" parameterClass="timeRange" resultClass="change">
+    <![CDATA[
+      SELECT c.* FROM Versions v
+        JOIN VersionChanges c ON v.id = c.versionId
+        WHERE releaseTime > #start# AND releaseTime <= #finish#
+        ORDER BY releaseTime DESC, c.id ASC
+    ]]>
+  </select>
+
+  <select id="getVersionChanges" parameterClass="int" resultClass="change">
+    SELECT * FROM VersionChanges WHERE versionId = #value#
+  </select>
+
+  <select id="findVersion" parameterClass="string" resultClass="version">
+    SELECT * FROM Versions WHERE version = #value#
+  </select>
+
+  <select id="findVersionByID" parameterClass="int" resultClass="version">
+    SELECT * FROM Versions WHERE id = #value#
+  </select>
+
+  <select id="getLatestVersions" parameterClass="int" resultClass="version">
+    SELECT * FROM Versions ORDER BY releaseTime DESC LIMIT #value#
+  </select>
+</sqlMap>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Message">
+    <typeAlias alias="msg" type="com.salas.bbservice.domain.Message"/>
+
+    <select id="find" parameterClass="java.util.Map" resultClass="msg">
+        SELECT id, priority, mtype as type, title, text, COALESCE(version, '') version
+        FROM messages
+        WHERE (version=#version# AND id > #lastVID#) OR
+              ((version='' OR version IS NULL) AND id > #lastUID#)
+        ORDER BY version DESC, id DESC LIMIT 10;
+    </select>
+</sqlMap>

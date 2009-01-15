@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+
+  <properties resource="database.properties"/>
+
+  <settings
+    cacheModelsEnabled="true"
+    enhancementEnabled="true"
+    maxSessions="64"
+    maxTransactions="8"
+    useStatementNamespaces="true"
+    maxRequests="128"/>
+
+  <transactionManager type="JDBC">
+    <dataSource type="SIMPLE">
+      <property name="JDBC.Driver" value="${driver}"/>
+      <property name="JDBC.ConnectionURL" value="${url}"/>
+      <property name="JDBC.Username" value="${username}"/>
+      <property name="JDBC.Password" value="${password}"/>
+      <property name="Pool.MaximumActiveConnections" value="10"/>
+      <property name="Pool.MaximumIdleConnections" value="5"/>
+      <property name="Pool.MaximumWait" value="15000"/>
+    </dataSource>
+  </transactionManager>
+
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/User.xml"/>
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/Channel.xml"/>
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/UserGuide.xml"/>
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/UserChannel.xml"/>
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/UserQueryFeed.xml"/>
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/UserSearchFeed.xml"/>
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/UserPreference.xml"/>
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/UserSharedTags.xml"/>
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/UserReadingList.xml"/>
+
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/Installation.xml"/>
+
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/Stats.xml"/>
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/DataMining.xml"/>
+
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/Blog.xml"/>
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/BlogLink.xml"/>
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/BlogCommunityField.xml"/>
+
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/ClientError.xml"/>
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/FeedbackMessage.xml"/>
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/Forum.xml"/>
+
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/Versions.xml"/>
+
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/Plan.xml"/>
+  <sqlMap resource="com/salas/bbservice/persistence/sqlmap/xml/Message.xml"/>
+
+</sqlMapConfig>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Forum">
+
+  <typeAlias alias="forum" type="com.salas.bbservice.domain.Forum"/>
+
+  <select id="list" parameterClass="int" resultClass="forum">
+    SELECT f.id as id, f.forum_name as name
+    FROM bb_forum.punbb_users u, bb_forum.punbb_forum_perms p, bb_forum.punbb_forums f
+    WHERE u.id=1 and u.group_id=p.group_id and post_topics=1 and f.id=forum_id and f.cat_id=1
+    <dynamic>
+      <isNotNull prepend="AND">
+        f.id = $value$
+      </isNotNull>
+    </dynamic>
+  </select>
+
+</sqlMap>

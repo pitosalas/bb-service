@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE daoConfig
+    PUBLIC "-//iBATIS.com//DTD DAO Configuration 2.0//EN"
+    "http://www.ibatis.com/dtd/dao-2.dtd">
+
+<daoConfig>
+
+  <context>
+
+    <transactionManager type="SQLMAP">
+      <property name="SqlMapConfigResource"
+        value="com/salas/bbservice/persistence/sqlmap/xml/sql-map-config.xml"/>
+    </transactionManager>
+
+    <dao interface="com.salas.bbservice.persistence.IUserDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.UserSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IChannelDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.ChannelSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IUserGuideDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.UserGuideSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IUserChannelDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.UserChannelSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IUserQueryFeedDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.UserQueryFeedSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IUserSearchFeedDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.UserSearchFeedSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IUserPreferenceDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.UserPreferenceSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IUserSharedTagsDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.UserSharedTagsSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IUserReadingListDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.UserReadingListSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IInstallationDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.InstallationSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IStatsDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.StatsSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IBlogDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.BlogSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IBlogLinkDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.BlogLinkSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IBlogCommunityFieldDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.BlogCommunityFieldSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IClientErrorDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.ClientErrorSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IFeedbackMessageDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.FeedbackMessageSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IForumDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.ForumSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IVersionsDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.VersionsSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IDataMiningDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.DataMiningSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IPlansDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.PlansSqlMapDao"/>
+
+    <dao interface="com.salas.bbservice.persistence.IMessageDao"
+      implementation="com.salas.bbservice.persistence.sqlmap.MessageSqlMapDao"/>
+
+  </context>
+
+</daoConfig>

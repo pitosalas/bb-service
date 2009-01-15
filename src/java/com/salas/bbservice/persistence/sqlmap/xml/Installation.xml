@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Installation">
+
+  <typeAlias alias="inst" type="com.salas.bbservice.domain.Installation"/>
+  <typeAlias alias="userInstallationPair" type="com.salas.bbservice.domain.dao.UserInstallationPair"/>
+
+  <insert id="insert" parameterClass="inst">
+    INSERT INTO installations (id, InstallationDate, Version, Runs, OS, JavaVersion)
+    VALUES (#id#, #installationDate#, #version#, #runs#, #os#, #javaVersion#)
+  </insert>
+
+  <update id="update" parameterClass="inst">
+    UPDATE installations
+    SET Runs = #runs#, JavaVersion = #javaVersion#
+    WHERE id = #id#
+  </update>
+
+  <delete id="delete" parameterClass="inst">
+    DELETE FROM installations
+    WHERE id = #id#
+  </delete>
+
+  <delete id="deleteRuns" parameterClass="inst">
+    DELETE FROM runs
+    WHERE InstallationID = #id#
+  </delete>
+
+  <select id="findById" parameterClass="long" resultClass="inst">
+    SELECT id, InstallationDate, Version, Runs, OS, JavaVersion
+    FROM installations
+    WHERE id = #value#
+  </select>
+
+  <insert id="registerRun" parameterClass="inst">
+    INSERT INTO runs (InstallationID, RunDate)
+    VALUES (#id#, Now())
+  </insert>
+
+  <update id="associateWithUser" parameterClass="userInstallationPair">
+    UPDATE installations
+    SET UserId = #userId#
+    WHERE id = #installationId#
+  </update>
+</sqlMap>

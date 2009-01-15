@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="BlogCommunityField">
+
+  <typeAlias alias="blogField" type="com.salas.bbservice.domain.BlogCommunityField"/>
+
+  <insert id="insert" parameterClass="blogField">
+    INSERT INTO BlogCommunityFields (blogId, name, value)
+    VALUES (#blogId#, #name#, #value#)
+  </insert>
+
+  <delete id="delete" parameterClass="blogField">
+    DELETE FROM BlogCommunityFields
+    WHERE blogId = #blogId# AND name = #name#
+  </delete>
+
+  <select id="selectFields" parameterClass="int" resultClass="blogField">
+    SELECT * FROM BlogCommunityFields
+    WHERE blogId = #value#
+    ORDER BY name, value
+  </select>
+
+</sqlMap>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Plan">
+
+    <typeAlias alias="userplan" type="com.salas.bbservice.domain.dao.UserPlan"/>
+    <typeAlias alias="keyvalue" type="com.salas.bbservice.domain.dao.KeyValue"/>
+
+    <select id="hash" parameterClass="java.util.Map" resultClass="string">
+        SELECT CONCAT(COALESCE(plan_exp_date + 0, "0"),"-",plan_id,"-",p.serial,"-",plan_is_trial)
+        FROM Users u LEFT JOIN plans p ON plan_id=p.id
+        WHERE u.email=#email# and u.password=#password#
+    </select>
+
+    <select id="hash_no_user" resultClass="string">
+        SELECT CONCAT("0-", id, "-", serial, "-0")
+        FROM plans
+        ORDER BY price
+        LIMIT 1
+    </select>
+
+    <resultMap id="user-plan" class="userplan">
+        <result property="plan_id" column="plan_id"/>
+        <result property="plan_name" column="name"/>
+        <result property="plan_serial" column="serial"/>
+        <result property="plan_price" column="plan_price" javaType="float" nullValue="0"/>
+        <result property="plan_period_months" column="plan_period_months" nullValue="0"/>
+        <result property="plan_exp_date" column="plan_exp_date" javaType="java.util.Date"/>
+        <result property="plan_is_trial" column="plan_is_trial" javaType="boolean"/>
+    </resultMap>
+
+    <!--  p.serial plan_serial, plan_price, plan_period_months, plan_exp_date, plan_is_trial -->
+    <select id="up" parameterClass="java.util.Map" resultMap="user-plan">
+        SELECT  plan_id,
+                p.name,
+                p.serial,
+                plan_price,
+                plan_period_months,
+                plan_exp_date,
+                plan_is_trial
+        FROM Users u LEFT JOIN plans p ON plan_id=p.id
+        WHERE u.email=#email# and u.password=#password#
+    </select>
+
+    <select id="userPlan_no_user" resultClass="userplan">
+        SELECT id plan_id, name plan_name, serial plan_serial, price plan_price, period_months plan_period_months, NULL plan_exp_date, 0 plan_is_trial 
+        FROM plans
+        ORDER BY price
+        LIMIT 1
+    </select>
+
+    <select id="features" parameterClass="int" resultClass="keyvalue">
+        SELECT f.name 'key', COALESCE(pf.value, f.default_value) value
+        FROM features f LEFT JOIN plans_features pf
+            ON f.id = pf.feature_id AND pf.plan_id = $value$
+    </select>
+</sqlMap>

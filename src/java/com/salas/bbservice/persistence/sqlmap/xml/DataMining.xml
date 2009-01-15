@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="DataMining">
+
+    <typeAlias alias="dmvaluecount" type="com.salas.bbservice.domain.dao.ValueCount"/>
+
+    <select id="getTopGuideName" parameterClass="int" resultClass="dmvaluecount">
+        SELECT title AS value, count(*) AS 'count'
+        FROM UserGuides
+        GROUP BY title
+        ORDER BY count DESC
+        LIMIT $value$
+    </select>
+
+    <select id="getUsersToGuides" resultClass="dmvaluecount">
+        SELECT userid as value, count(*) AS 'count'
+        FROM UserGuides
+        GROUP BY userid
+    </select>
+
+    <select id="getGuidesToFeeds" resultClass="dmvaluecount">
+        SELECT userguideid as value, count(*) AS 'count'
+        FROM UserChannels
+        GROUP BY userguideid
+        UNION
+        SELECT userguideid, count(*)
+        FROM UserQueryFeeds
+        GROUP BY userguideid
+        UNION
+        SELECT userguideid, count(*)
+        FROM UserSearchFeeds
+        GROUP BY userguideid
+    </select>
+
+    <select id="getTopVisitedRLs" parameterClass="int" resultClass="java.util.HashMap">
+        SELECT u.id as userId, fullName as userFullName, email as userEmail, lastSyncTime, publishingEnabled,
+          v.title, COUNT(*) as totalVisits, COUNT(DISTINCT(clientIP)) as uniqueVisits
+        FROM ReadingListVisits v LEFT JOIN Users u ON v.userId=u.id
+          LEFT JOIN UserGuides ug ON ug.userId=u.id AND ug.publishingTitle=v.title
+        GROUP BY userId, v.title
+        ORDER BY totalVisits DESC, title
+        LIMIT $value$
+    </select>
+
+    <select id="getLongestRLs" parameterClass="int" resultClass="java.util.HashMap">
+        SELECT u.id as userId, fullName as userFullName, email as userEmail, lastSyncTime, ug.publishingTitle, ug.publishingEnabled, COUNT(*) feeds
+        FROM UserGuides ug, UserChannels uc, Users u
+        WHERE publishingEnabled = 1 AND
+            publishingTitle IS NOT NULL AND
+            uc.userGuideId = ug.id AND
+            ug.userId = u.id
+        GROUP BY userId, publishingTitle
+        ORDER BY feeds DESC, publishingTitle
+        LIMIT $value$
+    </select>
+
+</sqlMap>

@@ -1,0 +1,24 @@
+div.data#paging {
+  font-family: Verdana, Tahoma, Arial;
+  font-size: 10px;
+  text-align: center;
+}
+
+div.data#paging a {
+  text-decoration: none;
+}
+
+div.data#paging ul {
+  margin: 0;
+  padding: 0;
+  line-style-type: none;
+}
+
+div.data#paging ul li {
+  display: block;
+  float: left;
+  position: relative;
+  margin: 0 0 0 5px;
+  padding: 0 5px 0 5px;
+  width: 20px;
+}

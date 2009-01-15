@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Stats">
+
+    <typeAlias alias="valuecount" type="com.salas.bbservice.domain.dao.ValueCount"/>
+    <typeAlias alias="valuecountdate" type="com.salas.bbservice.domain.dao.ValueCountDate"/>
+    <typeAlias alias="valuedouble" type="com.salas.bbservice.domain.dao.ValueDouble"/>
+    <typeAlias alias="topRatedParam" type="com.salas.bbservice.domain.dao.StatsTopRatedParam"/>
+    <typeAlias alias="topRatedResult" type="com.salas.bbservice.domain.dao.StatsTopRatedResult"/>
+    <typeAlias alias="dateRange" type="com.salas.bbservice.domain.dao.DatesRange"/>
+
+    <select id="getInstallationsCount" parameterClass="string" resultClass="valuecount">
+        SELECT Version as value, COUNT(*) as 'count'
+        FROM installations
+        $value$
+        GROUP BY Version
+    </select>
+
+    <select id="getRunsCount" parameterClass="string" resultClass="valuecount">
+        SELECT Version as value, COUNT(*) as 'count'
+        FROM installations i RIGHT JOIN runs r ON i.ID=r.InstallationID
+        $value$
+        GROUP BY Version
+    </select>
+
+    <select id="getInstVersionDistr" parameterClass="string" resultClass="valuecount">
+        SELECT Version as value, COUNT(*) as count
+        FROM installations
+        $value$
+        GROUP BY Version
+    </select>
+
+    <select id="avgRunsPerDay" resultClass="double">
+        SELECT SUM(Runs) / (TO_DAYS(NOW()) - TO_DAYS(MIN(InstallationDate))) as value
+        FROM installations
+    </select>
+
+    <select id="avgRunsPerInstallation" resultClass="double">
+        SELECT SUM(Runs) / COUNT(*) as value
+        FROM installations
+    </select>
+
+    <select id="getOsUsage" resultClass="valuecount">
+        SELECT OS as value, COUNT(*) as count
+        FROM installations
+        WHERE OS IS NOT NULL
+        GROUP BY OS
+    </select>
+
+    <select id="getJavaVersionUsage" resultClass="valuecount">
+        SELECT JavaVersion as value, COUNT(*) as count
+        FROM installations
+        WHERE JavaVersion IS NOT NULL
+        GROUP BY JavaVersion
+    </select>
+
+    <select id="getUsersCount" parameterClass="string" resultClass="int">
+        SELECT COUNT(*) as value
+        FROM Users $value$
+    </select>
+
+    <select id="getLocaleStats" resultClass="valuecount">
+        SELECT Locale as value, COUNT(*) as 'count'
+        FROM Users
+        GROUP BY Locale
+    </select>
+
+    <select id="getAllKeywords" resultClass="string">
+        SELECT value
+        FROM UserPreferences
+        WHERE name = 'state.keywords' AND value IS NOT NULL
+    </select>
+
+    <select id="getTopReadChannels" parameterClass="int" resultClass="valuecount">
+        <![CDATA[
+            SELECT concat('<a href=''', htmlUrl, '''>',Title, '</a>') as value, COUNT(*) as 'count'
+            FROM Channels c INNER JOIN UserChannels uc ON c.id = uc.channelID
+            GROUP BY title, htmlUrl
+            ORDER BY count DESC, Title
+            LIMIT $value$
+        ]]>
+    </select>
+
+    <select id="getTopRatedChannelsRaw" parameterClass="topRatedParam" resultClass="topRatedResult">
+        <![CDATA[
+            SELECT title, htmlUrl, xmlUrl, SUM(Rating + 1) / SUM(Rating > -1) as averageRating, count(*) as subscriptions,
+              SUM(Rating + 1) / SUM(Rating > -1) + count(*) * #subscriptionWeight# as finalRating
+            FROM Channels c INNER JOIN UserChannels uc ON c.id = uc.channelId
+            GROUP BY title, htmlUrl
+            ORDER BY finalRating DESC, Title
+            LIMIT #limit#
+        ]]>
+    </select>
+
+    <select id="getBlogsCount" resultClass="int">
+        SELECT COUNT(*) as value FROM Blogs
+    </select>
+
+    <select id="getIncompleteBlogsCount" resultClass="int">
+        SELECT COUNT(*) as value FROM Blogs WHERE incompleteDiscovery = 1
+    </select>
+
+    <select id="getBlogLinksCount" resultClass="int">
+        SELECT COUNT(*) as value FROM BlogLinks
+    </select>
+
+    <select id="getBadBlogLinksCount" resultClass="int">
+        SELECT COUNT(*) as value
+        FROM BlogLinks
+        WHERE blogId = (SELECT id FROM Blogs WHERE status = 2)
+    </select>
+
+    <select id="getLatestVersions" parameterClass="int" resultClass="string">
+        SELECT DISTINCT(Version) as value FROM installations ORDER BY InstallationDate DESC LIMIT $value$
+    </select>
+
+    <select id="getInstallationsInRange" parameterClass="dateRange" resultClass="int">
+        <![CDATA[
+            SELECT COUNT(*) as cnt FROM installations WHERE InstallationDate >= #start# and InstallationDate < #end#
+        ]]>
+    </select>
+
+    <select id="getRunsInRange" parameterClass="dateRange" resultClass="int">
+        <![CDATA[
+            SELECT COUNT(*) as cnt FROM runs WHERE RunDate >= #start# and RunDate < #end#
+        ]]>
+    </select>
+
+    <select id="getRegistrationsInRange" parameterClass="dateRange" resultClass="int">
+        <![CDATA[
+            SELECT COUNT(*) as cnt FROM Users WHERE registrationDate >= #start# and registrationDate < #end#
+        ]]>
+    </select>
+
+    <select id="getFirstInstallationDate" resultClass="string">
+        SELECT DATE_FORMAT(MIN(InstallationDate), '%Y-%m-%d') FROM installations
+    </select>
+
+    <select id="getTopSubscribers" parameterClass="int" resultClass="valuecountdate">
+        <![CDATA[
+            SELECT concat('<a href=''mailto://', u.email, '''>',u.fullName, '</a>') as value, COUNT(*) as count, lastSyncTime as 'date'
+            FROM UserChannels uc
+                LEFT JOIN UserGuides ug ON ug.id = uc.userguideid
+                LEFT JOIN Users u ON u.id = ug.userid
+            GROUP BY u.id ORDER BY count DESC LIMIT #value#;
+        ]]>
+    </select>
+
+    <select id="getTopSynchronizers" parameterClass="int" resultClass="valuecountdate">
+        <![CDATA[
+            SELECT concat('<a href=''mailto://', u.email, '''>',u.fullName, '</a>') as value, COUNT(*) as count, lastSyncTime as 'date'
+            FROM UserSyncs s, Users u
+            WHERE s.userId = u.id
+            GROUP BY userId
+            ORDER BY count desc, fullName, email
+            LIMIT $value$
+        ]]>
+    </select>
+
+    <select id="getTopRunners" parameterClass="int" resultClass="valuecountdate">
+        <![CDATA[
+            SELECT concat('<a href=''mailto://', u.email, '''>',u.fullName, '</a>') as value, COUNT(*) as count, lastSyncTime as 'date'
+            FROM runs r
+                LEFT JOIN installations i ON r.installationId = i.id
+                LEFT JOIN Users u ON u.id = i.userid
+            WHERE u.fullName IS NOT NULL
+            GROUP BY u.id ORDER BY count DESC LIMIT #value#;
+        ]]>
+    </select>
+
+
+    <select id="selectTopActiveSynchronizers" parameterClass="int" resultClass="valuecountdate">
+        <![CDATA[
+            SELECT concat('<a href=''mailto://', u.email, '''>',u.fullName, '</a>') as value, count(*) * 24 * 3600000 / (max(synctime) - min(synctime)) as count, lastSyncTime as 'date'
+            FROM UserSyncs s, Users u
+            WHERE u.id = s.userId
+            GROUP BY userId
+            HAVING max(synctime)-min(synctime) > 3600000 * 24
+            ORDER BY count DESC
+            LIMIT $value$
+        ]]>
+    </select>
+
+    <select id="getRegistrationTrends" parameterClass="int" resultClass="valuecount">
+        SELECT DATE_FORMAT(registrationDate, "%m/%d/%Y") AS value, COUNT(*) AS count
+        FROM Users
+        GROUP BY value
+        ORDER BY id DESC
+        LIMIT $value$;
+    </select>
+
+    <select id="countVisitedReadingLists" resultClass="int">
+        SELECT count(distinct(concat(userid, ' ', lower(title)))) FROM ReadingListVisits
+    </select>
+
+    <select id="countReadingLists" resultClass="int">
+        SELECT count(*) FROM UserGuides WHERE publishingEnabled=1 AND publishingTitle IS NOT NULL
+    </select>
+
+    <select id="getFeedsInReadingList" parameterClass="java.util.Map" resultClass="int">
+        SELECT COUNT(*) as feeds
+        FROM UserGuides ug LEFT JOIN UserChannels uc ON uc.userGuideId=ug.id
+        WHERE ug.userId=#userId# AND ug.publishingTitle=#title#
+    </select>
+
+    <select id="getReadingListsAccessInfo" parameterClass="java.util.Map" resultClass="java.util.HashMap">
+        SELECT u.id as userId, fullName as userFullName, email as userEmail, publishingEnabled,
+        v.title, COUNT(*) as totalVisits, COUNT(DISTINCT(clientIP)) as uniqueVisits
+        FROM ReadingListVisits v LEFT JOIN Users u ON v.userId=u.id
+        LEFT JOIN UserGuides ug ON ug.userId=u.id AND ug.publishingTitle=v.title
+        GROUP BY userId, v.title
+        ORDER BY totalVisits DESC, title
+        LIMIT #offset#, #limit#
+    </select>
+
+    <!--
+        SELECT u.id as userId, u.fullName as userFullName, u.email as userEmail,
+            g.publishingEnabled, g.publishingTitle as title,
+            COUNT(*) as totalVisits, COUNT(DISTINCT(clientIP)) as uniqueVisits
+          FROM Users u LEFT JOIN UserGuides g ON g.userId=u.id
+            LEFT JOIN ReadingListVisits v ON g.userId=v.userId AND g.publishingTitle=v.title
+          GROUP BY userId, publishingTitle
+          ORDER BY fullName, publishingTitle
+          LIMIT #offset#, #limit#
+    -->
+    <select id="getReadingListsInfo" parameterClass="java.util.Map" resultClass="java.util.HashMap">
+        SELECT publishingEnabled, publishingTitle as title,
+        g.userId, fullName as userFullName, email as userEmail,
+        COUNT(*) as totalVisits, COUNT(DISTINCT(clientIP)) as uniqueVisits
+        FROM UserGuides g
+        LEFT JOIN Users u ON u.id=g.userid
+        LEFT JOIN ReadingListVisits v ON v.userid=g.userid AND v.title=g.publishingTitle
+        WHERE publishingEnabled=1 AND publishingTitle IS NOT NULL
+        GROUP BY userId, publishingTitle
+        ORDER BY fullName, publishingTitle
+        LIMIT #offset#, #limit#
+    </select>
+
+    <delete id="clearReadingListStats" parameterClass="java.util.Map">
+        DELETE FROM ReadingListVisits WHERE userId=#userid# AND title=#title#
+    </delete>
+
+    <select id="getReadListCirculation" parameterClass="java.util.Map" resultClass="java.util.HashMap">
+        <![CDATA[
+    SELECT TO_DAYS(NOW())-TO_DAYS(accessDate) day, COUNT(*) visits
+      FROM ReadingListVisits
+      WHERE userid=#userId# AND title=#title#
+      GROUP BY day HAVING day < #dayscount#;
+    ]]>
+    </select>
+</sqlMap>

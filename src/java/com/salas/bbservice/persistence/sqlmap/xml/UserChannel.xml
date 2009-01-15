@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="UserChannel">
+
+  <typeAlias alias="userchannel" type="com.salas.bbservice.domain.UserChannel"/>
+
+  <insert id="insert" parameterClass="userchannel">
+    INSERT INTO UserChannels (
+      userGuideId,
+      channelId,
+      rating,
+      indx,
+      readArticlesKeys,
+      pinnedArticlesKeys,
+      purgeLimit,
+      customTitle,
+      customCreator,
+      customDescription,
+      tags,
+      tagsDescription,
+      tagsExtended,
+      userReadingListId,
+      disabled,
+      viewType,
+      viewModeEnabled,
+      viewMode,
+      ascendingSorting,
+      updatePeriod
+      )
+    VALUES (
+      #userGuideId#,
+      #channelId#,
+      #rating#,
+      #index#,
+      #readArticlesKeys#,
+      #pinnedArticlesKeys#,
+      #purgeLimit#,
+      #customTitle#,
+      #customCreator#,
+      #customDescription#,
+      #tags#,
+      #tagsDescription#,
+      #tagsExtended#,
+      #userReadingListId#,
+      #disabled#,
+      #viewType#,
+      #viewModeEnabled#,
+      #viewMode#,
+      #ascendingSorting#,
+      #updatePeriod#
+      )
+    <selectKey resultClass="int" keyProperty="id">
+      SELECT LAST_INSERT_ID() as id
+    </selectKey>
+  </insert>
+
+  <delete id="delete" parameterClass="userchannel">
+    DELETE FROM UserChannels
+    WHERE id = #id#
+  </delete>
+
+  <select id="findById" parameterClass="int" resultClass="userchannel">
+    SELECT *, indx as 'index' FROM UserChannels WHERE id = #value#
+  </select>
+
+  <select id="select" parameterClass="java.util.Map" resultClass="userchannel">
+    SELECT *, indx as 'index' FROM UserChannels
+    WHERE userGuideId = #guideId#
+    <dynamic>
+      <isNotNull prepend="AND" property="readingListId">
+        userReadingListId = #readingListId#
+      </isNotNull>
+      <isNull prepend="AND" property="readingListId">
+        userReadingListId IS NULL
+      </isNull>
+    </dynamic>
+    ORDER BY indx
+  </select>
+
+</sqlMap>

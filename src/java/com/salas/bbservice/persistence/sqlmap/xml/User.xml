@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="User">
+
+    <typeAlias alias="user" type="com.salas.bbservice.domain.User"/>
+
+    <insert id="insert" parameterClass="user">
+        INSERT INTO Users (fullName, email, password, activated, registrationDate, locale, notifyOnUpdates,
+        lastSyncTime, apikey)
+        VALUES (#fullName#, #email#, #password#, #activated#, #registrationDate#, #locale#, #notifyOnUpdates#,
+        #lastSyncTime#, UUID())
+        <selectKey resultClass="int" keyProperty="id">
+            SELECT LAST_INSERT_ID() as id
+        </selectKey>
+    </insert>
+
+    <update id="update" parameterClass="user">
+        UPDATE Users
+        SET fullName = #fullName#, email = #email#, password = #password#, activated = #activated#,
+        locale = #locale#, notifyOnUpdates = #notifyOnUpdates#, lastSyncTime = #lastSyncTime#
+        WHERE id = #id#
+    </update>
+
+    <delete id="delete" parameterClass="user">
+        DELETE FROM Users
+        WHERE id = #id#
+    </delete>
+
+    <delete id="deleteAllGuides" parameterClass="user">
+        DELETE FROM UserGuides
+        WHERE userId = #id#
+    </delete>
+
+    <select id="findById" parameterClass="int" resultClass="user">
+        SELECT * FROM Users WHERE id = #value#
+    </select>
+
+    <select id="findByEmail" parameterClass="string" resultClass="user">
+        SELECT * FROM Users WHERE email = #value#
+    </select>
+
+    <select id="getUsers" parameterClass="java.util.Map" resultClass="user">
+        SELECT *
+        FROM Users
+        <dynamic prepend="WHERE">
+            <isNotNull prepend="AND" property="pattern">
+                fullName LIKE #pattern#
+            </isNotNull>
+            <isNotNull prepend="OR" property="pattern">
+                email LIKE #pattern#
+            </isNotNull>
+        </dynamic>
+        ORDER BY fullName, email
+        LIMIT #offset#, #count#
+    </select>
+
+    <select id="getRecentUsers" parameterClass="string" resultClass="user">
+        SELECT *
+        FROM Users
+        $value$
+    </select>
+
+    <select id="select" parameterClass="string" resultClass="user">
+        SELECT * FROM Users $value$ ORDER BY fullName, email
+    </select>
+
+    <select id="getUsersCount" parameterClass="java.util.Map" resultClass="int">
+        SELECT COUNT(*) as value
+        FROM Users
+        <dynamic prepend="WHERE">
+            <isNotNull prepend="AND" property="pattern">
+                fullName LIKE #pattern#
+            </isNotNull>
+            <isNotNull prepend="OR" property="pattern">
+                email LIKE #pattern#
+            </isNotNull>
+        </dynamic>
+    </select>
+
+    <insert id="registerSync" parameterClass="java.util.Map">
+        INSERT INTO UserSyncs (userId, synctime, store)
+        VALUES (#userId#, #synctime#, #store#)
+    </insert>
+
+    <select id="selectEveryone" resultClass="user">
+        SELECT * FROM Users ORDER BY fullName, email
+    </select>
+
+    <select id="selectActivated" resultClass="user">
+        SELECT * FROM Users WHERE activated = 1 ORDER BY fullName, email
+    </select>
+
+    <select id="selectSubscribed" resultClass="user">
+        SELECT * FROM Users WHERE activated = 1 AND notifyOnUpdates = 1
+        ORDER BY fullName, email
+    </select>
+
+    <select id="selectTopSync" parameterClass="int" resultClass="user">
+        SELECT userid, COUNT(*) syncs, u.*
+        FROM UserSyncs s, Users u
+        WHERE s.userId = u.id
+        GROUP BY userId
+        ORDER BY syncs desc, fullName, email
+        <dynamic>
+            <isParameterPresent>
+                LIMIT $value$
+            </isParameterPresent>
+        </dynamic>
+    </select>
+
+    <select id="selectTopRunners" parameterClass="int" resultClass="user">
+        SELECT u.*, COUNT(*) truns
+        FROM installations i, runs r, Users u
+        WHERE userId IS NOT NULL AND
+            r.installationid = i.id AND
+            u.id = userId AND
+            u.activated = 1
+        GROUP BY u.id
+        ORDER BY truns desc, fullname, email
+        <dynamic>
+            <isParameterPresent>
+                LIMIT $value$
+            </isParameterPresent>
+        </dynamic>
+    </select>
+
+    <select id="selectTopReaders" parameterClass="int" resultClass="user">
+        SELECT u.*, COUNT(*) feeds
+        FROM Users u, UserGuides g, UserChannels c
+        WHERE u.id = g.userid AND
+            g.id = c.userguideid AND
+            u.activated = 1
+        GROUP BY u.id
+        ORDER BY feeds desc, fullname, email
+        <dynamic>
+            <isParameterPresent>
+                LIMIT $value$
+            </isParameterPresent>
+        </dynamic>
+    </select>
+</sqlMap>

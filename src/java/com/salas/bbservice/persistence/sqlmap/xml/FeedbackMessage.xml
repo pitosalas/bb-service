@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="FeedbackMessage">
+
+  <typeAlias alias="feedbackMessage" type="com.salas.bbservice.domain.FeedbackMessage"/>
+
+  <insert id="insert" parameterClass="feedbackMessage">
+    INSERT INTO FeedbackMessages (
+        message,
+        time)
+    VALUES (
+        #message#,
+        #time#)
+    <selectKey resultClass="int" keyProperty="id">
+      SELECT LAST_INSERT_ID() as id
+    </selectKey>
+  </insert>
+
+  <delete id="delete" parameterClass="feedbackMessage">
+    DELETE FROM FeedbackMessages WHERE id = #id#
+  </delete>
+
+  <delete id="deleteAll">
+    DELETE FROM FeedbackMessages
+  </delete>
+
+  <select id="select" parameterClass="string" resultClass="feedbackMessage">
+    SELECT * FROM FeedbackMessages ORDER BY time DESC $value$
+  </select>
+
+  <select id="findById" parameterClass="int" resultClass="feedbackMessage">
+    SELECT * FROM FeedbackMessages WHERE id = #value#
+  </select>
+
+  <select id="count" resultClass="int">
+    SELECT COUNT(*) FROM FeedbackMessages
+  </select>
+
+</sqlMap>

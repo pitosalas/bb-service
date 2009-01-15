@@ -1,0 +1,249 @@
+Server accepts XML-RPC commands from client through the following URL:
+
+http://<server>/servlet/ServiceServlet
+
+Commands, which are understood by server:
+
+----------------------------------------------------------------------------------------------------
+PLANS service
+----------------------------------------------------------------------------------------------------
+
+* plans.getHash(String email, String password):String
+
+    Returns the hash created from the information affecting either the feature set
+    available or the expiration period of the plan.
+
+* plans.getFeatures(String email, String password):Map
+
+    Returns the collection of all features available and the expiration date.
+
+    _exp_date       - the date of the next installment (or 0 in case of unlimited)
+    _price          - the price of the plan
+    _period_months  - the billing period in months
+    _is_trial       - 1 if the plan is trial
+    <feature.name>  - <feature.value> the feature and its value for the given plan
+
+----------------------------------------------------------------------------------------------------
+ACCOUNTS service
+----------------------------------------------------------------------------------------------------
+
+* accounts.registerAccount(String fullName, String email, String password, String locale,
+                         boolean notifyOnUpdates):String
+
+    Registers account with given information and returns empty string.
+    If there are any errors resulting string will contain appropriate message.
+
+    fullName        - name of the user
+    email           - email address of the user
+    password        - password of the user
+    locale          - user's locale like 'en_US'
+    notifyOnUpdates - TRUE if user allowed to user his email for updates notifications.
+
+* accounts.activateAccount(String email, String id):String
+* accounts.activateAccount(String email, int id):String
+
+    Activates account and returns empty string.
+    If there are any errors resulting string will contain appropriate message.
+
+    email           - email address of the user used to register account
+    id              - id, specified in activation mail
+
+* accounts.getSessionId(String email, String password):int
+
+    Returns id of session to be used in account-related calls.
+    If there's an error id will be negative code. Following codes may happen:
+      -1 - Account isn't activated yet.
+      -2 - Account password is incorrect.
+      -3 - Account isn't registered.
+
+    email           - email address of the user used to register account
+    password        - account password
+
+----------------------------------------------------------------------------------------------------
+SYNCHRONIZATION service
+----------------------------------------------------------------------------------------------------
+
+* (Deprecated) sync.store(int sessionId, String opml):String
+
+    Stores list of guides presented as extended OPML in server database.
+    If there's an error returns the message in result. Otherwise empty string.
+
+    sessionId       - id of the session taken from 'accounts.getSessionId'
+    opml            - standard OPML presentation of guides list
+
+* sync.storeInUtf8(int sessionId, byte[] opml):String
+
+    Stores list of guides presented as extended OPML in server database in UTF-8 charset.
+    If there's an error returns the message in result. Otherwise empty string.
+
+    sessionId       - id of the session taken from 'accounts.getSessionId'
+    opml            - standard OPML presentation of guides list in UTF-8 bytes array.
+
+* (Deprecated) sync.restore(int sessionId, int opmlVersion):String
+
+    Restores list of guides stored in database presenting it in OPML format
+    ready for import by application. If session id is invalid empty string
+    will be returned.
+
+    sessionId       - id of the session taken from 'accounts.getSessionId'
+    opmlVersion     - [optional] version of OPML format to return data in (0 - old etc)
+
+* sync.restoreInUtf8(int sessionId, int opmlVersion):byte[]
+
+    Restores list of guides stored in database presenting it in OPML format
+    ready for import by application. If session id is invalid empty array
+    will be returned. Bytes array represents UTF-8 string.
+
+    sessionId       - id of the session taken from 'accounts.getSessionId'
+    opmlVersion     - [optional] version of OPML format to return data in (0 - old etc)
+
+* sync.storePrefs(int sessionId, Hashtable preferences):String
+
+    Stores preferences associated with the user in database. Preferences which aren't mentioned
+    in this list map be removed from database. Existing preferences will be update, new preferences
+    added. Returns wmpty string.
+
+    sessionId       - id of the session taken from 'accounts.getSessionId'
+    preferences     - map of name:value. Where 'name' is String and value is byte[] made from
+                      String in UTF-8 encoding.
+
+* sync.restorePrefs(int sessionId):Hashtable
+
+    Restores preferences associated with the user from database. Result map contains the same
+    layout as described for 'sync.storePrefs'.
+
+----------------------------------------------------------------------------------------------------
+BLOG META-DATA DISCOVERY & MANAGEMENT service
+----------------------------------------------------------------------------------------------------
+
+* (Deprecated) meta.getBlogByUrl(String url):Hashtable
+
+    Queries service for meta-data about blog by provided URL of blog or
+    article or whatever.
+
+    url             - URL pointing to something within blog, to the blog
+                      itself or its data (RSS/Atom/RDF).
+
+    Fields of result:
+
+    code            - return code:
+                       0 - successful (check the fields for data)
+                       1 - processing, check later (no other fields)
+                       2 - invalid URL or URL pointing to non-discoverable
+                           place. Fields may be or may not be present.
+    title           - title of the blog.
+    author          - author of the blog.
+    description     - description of the blog.
+    htmlUrl         - root blog URL.
+    dataUrl         - data URL.
+    inboundLinks    - number of links pointing to this blog.
+    rank            - Technorati rank.
+    category        - category of the blog.
+    location        - publisher's location.
+    communityFields - map of community overridable fields: Name:arrayof(Value)
+                      Name is String
+                      Value is byte[]
+
+* meta.getBlogByUrlInUtf8(String url):Hashtable
+
+    Queries service for meta-data about blog by provided URL of blog or
+    article or whatever. Title, author and description fields are returned as
+    bytes arrays representing original strings in UTF-8 format.
+
+    url             - URL pointing to something within blog, to the blog
+                      itself or its data (RSS/Atom/RDF).
+
+    Fields of result:
+
+    code            - return code:
+                       0 - successful (check the fields for data)
+                       1 - processing, check later (no other fields)
+                       2 - invalid URL or URL pointing to non-discoverable
+                           place. Fields may be or may not be present.
+    title           - title of the blog (array of bytes representing UTF-8 string).
+    author          - author of the blog (array of bytes representing UTF-8 string).
+    description     - description of the blog (array of bytes representing UTF-8 string).
+    htmlUrl         - root blog URL.
+    dataUrl         - data URL.
+    inboundLinks    - number of links pointing to this blog.
+    category        - category of the blog.
+    location        - publisher's location.
+    communityFields - map of community overridable fields: Name:arrayof(Value)
+                      Name is String
+                      Value is byte[]
+
+* meta.invalidUrl(String dataUrl):void
+
+    A tip to service that URL isn't good.
+
+    dataUrl         - data URL of the blog.
+
+* meta.setCommunityFields(int sessionId, String dataUrl, Hashtable fields):String
+
+    Sets the community overridable fields values of the Blog record specified by dataUrl.
+
+    sessionId       - id of the session taken from 'accounts.getSessionId'
+    dataUrl         - data URL of the blog.
+    fields          - fields to set: Name:arrayof(Value) or Name:Value
+                      Name is String
+                      Value is byte[]
+
+    Returns:          empty string in case of success or error message.
+
+* meta.getCommunityFields(String dataUrl):Hashtable
+
+    Gets the community overridable fields values of the Blog record specified by dataUrl.
+
+    dataUrl         - data URL of the blog.
+
+    Returns:          map of community fields: Name:arrayof(Value)
+                      Name is String
+                      Value is byte[]
+
+* meta.getOPMLURLs():Hashtable
+
+    Gets the list of OPML URLs defined in the service. For now, it's "opml.starting.points.url"
+    and "opml.experts.url".
+
+    Returns:          map of URL key names and URLs: Name:URL
+                      Name is String
+                      URL is byte[]
+
+----------------------------------------------------------------------------------------------------
+REPORTING service
+----------------------------------------------------------------------------------------------------
+
+* reports.clientError(String message, String details):String
+
+    Registers error from client. Returns empty string.
+
+    message         - error message.
+    details         - any details about error.
+
+* reports.feedbackMessage(byte[] message):String
+
+    Records feedback message from client. Returns empty string.
+
+    message         - message with feedback in UTF-8 encoding.
+
+----------------------------------------------------------------------------------------------------
+FORUM service
+----------------------------------------------------------------------------------------------------
+
+* forum.getForums():Hashtable
+
+    Returns all forums available for posting with names and ID's.
+
+    Returns:          map of forum-id and forum-name: id(int):name(String)
+
+* forum.post(byte[] fullname, byte[] email, int forumid, byte[] subject, byte[] message):String
+
+    Posts the record to some forum.
+
+    fullname        - the name of the author.
+    email           - the email address of the author (optional)
+    forumId         - ID of the forum to post (see getForums())
+    subject         - the subject of the post
+    message         - the text of the post
+
+    Returns:          empty string or error message

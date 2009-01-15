@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Channel">
+
+  <typeAlias alias="channel" type="com.salas.bbservice.domain.Channel"/>
+
+  <insert id="insert" parameterClass="channel">
+    INSERT INTO Channels (title, htmlUrl, xmlUrl, xmlUrlHash)
+    VALUES (#title#, #htmlUrl#, #xmlUrl#, #xmlUrlHash#)
+    <selectKey resultClass="int" keyProperty="id">
+      SELECT LAST_INSERT_ID() as id
+    </selectKey>
+  </insert>
+
+  <update id="update" parameterClass="channel">
+    UPDATE Channels
+    SET title = #title#, htmlUrl = #htmlUrl#, xmlUrl = #xmlUrl#
+    WHERE id = #id#
+  </update>
+
+  <delete id="delete" parameterClass="channel">
+    DELETE FROM Channels
+    WHERE id = #id#
+  </delete>
+
+  <select id="findById" parameterClass="int" resultClass="channel">
+    SELECT id, title, htmlUrl, xmlUrl
+    FROM Channels
+    WHERE id = #value#
+  </select>
+
+  <select id="findByXmlUrl" parameterClass="java.util.Map" resultClass="channel">
+    SELECT id, title, htmlUrl, xmlUrl
+    FROM Channels
+    WHERE xmlUrlHash = #xmlUrlHash# AND xmlUrl = #xmlUrl#
+  </select>
+</sqlMap>
