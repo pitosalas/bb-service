@@ -197,7 +197,7 @@ public final class SynchronizationService
             userGuide.isPublishingEnabled(), userGuide.getPublishingTitle(),
             userGuide.getPublishingTags(), userGuide.isPublishingPublic(),
             userGuide.getPublishingRating(), userGuide.isAutoFeedsDiscovery(),
-            userGuide.isNotificationsAllowed());
+            userGuide.isNotificationsAllowed(), userGuide.isMobile());
 
         readReadingLists(userGuide, guide);
 
@@ -219,7 +219,13 @@ public final class SynchronizationService
             aGuide.add(opmlList);
 
             List feeds = userChannelDao.select(guideId, list.getId());
-            opmlList.setFeeds(convertUserToOPMLItems(feeds));
+            List<DefaultOPMLFeed> efeeds = convertUserToOPMLItems(feeds);
+            List<DirectOPMLFeed>  dfeeds = new ArrayList<DirectOPMLFeed>(efeeds.size());
+            for (DefaultOPMLFeed feed: efeeds)
+            {
+                if (feed instanceof DirectOPMLFeed) dfeeds.add((DirectOPMLFeed)feed);
+            }
+            opmlList.setFeeds(dfeeds);
         }
     }
 
@@ -442,7 +448,7 @@ public final class SynchronizationService
         UserGuide userGuide = new UserGuide(u.getId(), guide.getTitle(), guide.getIcon(), index,
             guide.isPublishingEnabled(), guide.getPublishingTitle(), guide.getPublishingTags(),
             guide.isPublishingPublic(), guide.getPublishingRating(), guide.isAutoFeedsDiscovery(),
-            guide.isNotificationsAllowed());
+            guide.isNotificationsAllowed(), guide.isMobile());
         userGuideDao.add(userGuide);
 
         int cnt = storeReadingLists(userGuide.getId(), guide);

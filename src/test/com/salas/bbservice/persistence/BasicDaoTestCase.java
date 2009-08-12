@@ -81,17 +81,17 @@ public abstract class BasicDaoTestCase extends AbstractTestCase
 
     protected UserGuide guide1()
     {
-        return new UserGuide(-1, "A", "B", 1, false, null, null, false, 1, false, false);
+        return new UserGuide(-1, "A", "B", 1, false, null, null, false, 1, false, false, false);
     }
 
     protected UserGuide guide2()
     {
-        return new UserGuide(-1, "B", "B", 2, false, null, null, false, 2, false, false);
+        return new UserGuide(-1, "B", "B", 2, false, null, null, false, 2, false, false, false);
     }
 
     protected UserGuide guide3()
     {
-        return new UserGuide(1, "A", "B", 2, true, "A", "B", true, 3, true, true);
+        return new UserGuide(1, "A", "B", 2, true, "A", "B", true, 3, true, true, true);
     }
 
     /**

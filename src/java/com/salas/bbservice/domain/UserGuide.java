@@ -46,6 +46,8 @@ public class UserGuide
 
     private boolean autoFeedsDiscovery = false;
 
+    private boolean mobile = false;
+
     /**
      * Constructs the empty guide object.
      */
@@ -67,11 +69,12 @@ public class UserGuide
      * @param publishingRating  minimum rating for feeds publishing.
      * @param autoFeedsDiscovery auto feeds discovery flag.
      * @param notificationsAllowed TRUE to allow notifications.
+     * @param mobile            TRUE to show this guide in the mobile list.
      */
     public UserGuide(int userId, String title, String iconKey, int index,
                      boolean publishingEnabled, String publishingTitle, String publishingTags,
                      boolean publishingPublic, int publishingRating, boolean autoFeedsDiscovery,
-                     boolean notificationsAllowed)
+                     boolean notificationsAllowed, boolean mobile)
     {
         this.userId = userId;
         this.title = title;
@@ -87,6 +90,7 @@ public class UserGuide
         this.notificationsAllowed = notificationsAllowed;
 
         this.autoFeedsDiscovery = autoFeedsDiscovery;
+        this.mobile = mobile;
     }
 
     /**
@@ -330,6 +334,16 @@ public class UserGuide
     }
 
     /**
+     * Returns <code>TRUE</code> when the guide is marked as mobile.
+     *
+     * @return <code>TRUE</code> when the guide is marked as mobile.
+     */
+    public boolean isMobile()
+    {
+        return mobile;
+    }
+
+    /**
      * Indicates whether some other object is "equal to" this one.
      *
      * @param o the reference object with which to compare.
@@ -360,6 +374,7 @@ public class UserGuide
 
         if (autoFeedsDiscovery != userGuide.autoFeedsDiscovery) return false;
         if (notificationsAllowed != userGuide.notificationsAllowed) return false;
+        if (mobile != userGuide.mobile) return false;
 
         return !(title != null ? !title.equals(userGuide.title) : userGuide.title != null);
     }
@@ -394,6 +409,7 @@ public class UserGuide
             ", publishingPublic=" + publishingPublic +
             ", publishingRating=" + publishingRating +
             ", autoFeedsDiscovery=" + autoFeedsDiscovery +
-            ", notificationsAllowed=" + notificationsAllowed;
+            ", notificationsAllowed=" + notificationsAllowed +
+            ", mobile=" + mobile;
     }
 }

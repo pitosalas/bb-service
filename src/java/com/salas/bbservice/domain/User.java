@@ -333,6 +333,7 @@ public class User
             ", isActivated=" + isActivated +
             ", registrationDate=" + (registrationDate != null
                 ? registrationDate.toString() : "null") +
-            ", lastSyncTime=" + lastSyncTime;
+            ", lastSyncTime=" + lastSyncTime +
+            ", notifyOnUpdates=" + notifyOnUpdates;
     }
 }

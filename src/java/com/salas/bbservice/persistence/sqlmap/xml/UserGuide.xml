@@ -6,8 +6,8 @@
   <typeAlias alias="userguide" type="com.salas.bbservice.domain.UserGuide"/>
 
   <insert id="insert" parameterClass="userguide">
-    INSERT INTO UserGuides (userId, title, iconKey, indx, publishingEnabled, publishingTitle, publishingTags, publishingPublic, publishingRating, autoFeedsDiscovery, notificationsAllowed)
-    VALUES (#userId#, #title#, #iconKey#, #index#, #publishingEnabled#, #publishingTitle#, #publishingTags#, #publishingPublic#, #publishingRating#, #autoFeedsDiscovery#, #notificationsAllowed#)
+    INSERT INTO UserGuides (userId, title, iconKey, indx, publishingEnabled, publishingTitle, publishingTags, publishingPublic, publishingRating, autoFeedsDiscovery, notificationsAllowed, mobile)
+    VALUES (#userId#, #title#, #iconKey#, #index#, #publishingEnabled#, #publishingTitle#, #publishingTags#, #publishingPublic#, #publishingRating#, #autoFeedsDiscovery#, #notificationsAllowed#, #mobile#)
     <selectKey resultClass="int" keyProperty="id">
       SELECT LAST_INSERT_ID() as id
     </selectKey>

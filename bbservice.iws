@@ -15,11 +15,7 @@
     <option name="historyRevisionsNumber" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bbservice.ipr" afterPath="$PROJECT_DIR$/bbservice.ipr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bbservice.iws" afterPath="$PROJECT_DIR$/bbservice.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bbservice.iml" afterPath="$PROJECT_DIR$/bbservice.iml" />
-    </list>
+    <list default="true" readonly="true" id="b2378443-f990-4f22-8a38-02bf892c0387" name="Default" comment="" />
     <ignored path="target/" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
@@ -29,7 +25,6 @@
     <splitter proportion="0.5" />
   </component>
   <component name="CompilerWorkspaceConfiguration">
-    <option name="COMPILE_IN_BACKGROUND" value="true" />
     <option name="CLEAR_OUTPUT_DIRECTORY" value="true" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -40,6 +35,21 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <line_breakpoints>
+      <breakpoint url="file://$PROJECT_DIR$/src/test/com/salas/bbservice/persistence/TestUserDao.java" line="215" class="com.salas.bbservice.persistence.TestUserDao" package="com.salas.bbservice.persistence">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -97,12 +107,94 @@
       </PATH>
     </subPane>
   </component>
+  <component name="FileColors" enabled="false" enabledForTabs="false" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.properties" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/conf/app.properties">
+      <file leaf-file-name="database.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/conf/database.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="0" selection-start="2638" selection-end="2797" vertical-scroll-proportion="0.7221418">
+            <state line="9" column="0" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bbservice-schema.sql" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ddl/bbservice-schema.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="228" column="60" selection-start="9195" selection-end="9195" vertical-scroll-proportion="-96.23077">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestUserSearchFeedDao.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/com/salas/bbservice/persistence/TestUserSearchFeedDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="226" column="0" selection-start="6633" selection-end="6633" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestUserDao.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/com/salas/bbservice/persistence/TestUserDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="218" column="0" selection-start="6341" selection-end="6341" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/domain/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="8" selection-start="1479" selection-end="1479" vertical-scroll-proportion="0.29179332">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestPlansHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/com/salas/bbservice/plans/TestPlansHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="199" column="127" selection-start="5908" selection-end="5908" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserSearchFeed.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/domain/UserSearchFeed.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="73" column="11" selection-start="2527" selection-end="2527" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dao.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/persistence/dao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserGuideSqlMapDao.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/persistence/sqlmap/UserGuideSqlMapDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="13" selection-start="1423" selection-end="1423" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserGuide.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/persistence/sqlmap/xml/UserGuide.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="4" selection-start="520" selection-end="520" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -120,35 +212,37 @@
     <option name="SORT_ALPHABETICALLY" value="false" />
     <option name="HIDE_CLASSES_WHERE_METHOD_NOT_IMPLEMENTED" value="false" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/java/com/salas/bbservice/domain/UserGuide.java" />
+        <option value="$PROJECT_DIR$/src/java/com/salas/bbservice/service/sync/SynchronizationService.java" />
+        <option value="$PROJECT_DIR$/src/test/com/salas/bbservice/persistence/BasicDaoTestCase.java" />
+        <option value="$PROJECT_DIR$/src/test/com/salas/bbservice/service/sync/TestSynchronizationService.java" />
+        <option value="$PROJECT_DIR$/src/java/com/salas/bbservice/persistence/sqlmap/xml/UserGuide.xml" />
+        <option value="$PROJECT_DIR$/src/ddl/bbservice-schema.sql" />
+        <option value="$PROJECT_DIR$/src/java/com/salas/bbservice/domain/User.java" />
+      </list>
+    </option>
+  </component>
   <component name="JspContextManager">
     <jsp-to-context jsp-file="file://$PROJECT_DIR$/src/webapp/admin/configuration.jsp" context-file="file://$PROJECT_DIR$/src/webapp/admin/index.jsp" />
+    <jsp-to-context jsp-file="file://$PROJECT_DIR$/src/webapp/admin/client-errors.jsp" context-file="file://$PROJECT_DIR$/src/webapp/admin/client-errors-clear.jsp" />
   </component>
   <component name="ModuleEditorState">
     <option name="LAST_EDITED_MODULE_NAME" />
     <option name="LAST_EDITED_TAB_NAME" />
   </component>
   <component name="PackagesPane">
-    <subPane>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="bbservice" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="bbservice" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="com.salas.bbservice" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-        </PATH_ELEMENT>
-      </PATH>
-    </subPane>
+    <subPane />
   </component>
   <component name="PerforceDirect.Settings">
     <option name="useNativeApi" value="true" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state />
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="true" id="Add" />
@@ -185,7 +279,7 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="bbservice" />
+          <option name="myItemId" value="bb-service" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -199,7 +293,7 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="bbservice" />
+          <option name="myItemId" value="bb-service" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
@@ -217,7 +311,7 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="bbservice" />
+          <option name="myItemId" value="bb-service" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
@@ -225,7 +319,11 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="conf" />
+          <option name="myItemId" value="java" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="bbservice" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -247,29 +345,37 @@
     <option name="lastEditedConfigurable" value="Project 'bbservice'" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="0.16666667" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages Scope="false" PackagesPane="false" />
       <showMembers />
       <showModules PackagesPane="false" />
       <showLibraryContents PackagesPane="false" />
       <hideEmptyPackages Scope="true" PackagesPane="true" />
       <abbreviatePackageNames PackagesPane="false" />
-      <showStructure Favorites="false" Scope="false" PackagesPane="false" ProjectPane="false" />
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType PackagesPane="true" />
     </navigator>
   </component>
   <component name="PropertiesComponent">
+    <property name="project.structure.proportion" value="0.15" />
     <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="TEMP_MODULE_EXPLODED_DIR_FOR_bbservice/web/Web" value="C:\Documents and Settings\Aleksey\Local Settings\Temp\webExplodedDir17477tmp" />
-    <property name="GoToClass.includeLibraries" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.searchVisible" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="RunManagerConfig.compileBeforeRunning" value="true" />
     <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="TEMP_MODULE_EXPLODED_DIR_FOR_bbservice/web/Web2" value="C:\Documents and Settings\Aleksey\Local Settings\Temp\webExplodedDir17470tmp" />
+    <property name="options.lastSelected" value="com.intellij.ui.tabs.FileColorsConfigurable" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="RunManagerConfig.showSettingsBeforeRunnig" value="false" />
   </component>
@@ -284,8 +390,8 @@
       <recent name="com.salas.bbservice.service.meta.discovery" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TechTest">
-    <tempConfiguration default="false" name="TechTest" type="Application" factoryName="Application" enabled="false" merge="false" runner="emma">
+  <component name="RunManager" selected="JUnit.TestUserDao.testFindById">
+    <configuration default="false" name="TechTest" type="Application" factoryName="Application" temporary="true" enabled="false" merge="false" runner="emma">
       <option name="MAIN_CLASS_NAME" value="com.salas.bbservice.TechTest" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
@@ -306,15 +412,58 @@
       <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method>
-        <option name="Make" value="true" />
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
-    </tempConfiguration>
+    </configuration>
+    <configuration default="false" name="TestUserDao.testFindById" type="JUnit" factoryName="JUnit" temporary="true" enabled="false" merge="false" runner="emma">
+      <pattern>
+        <option name="PATTERN" value="com.salas.bbservice.service.sync.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+      <module name="bbservice" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="com.salas.bbservice.persistence" />
+      <option name="MAIN_CLASS_NAME" value="com.salas.bbservice.persistence.TestUserDao" />
+      <option name="METHOD_NAME" value="testFindById" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="ADDITIONAL_CLASS_PATH" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="51299" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
@@ -327,6 +476,42 @@
       <option name="VM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG" enabled="false" merge="false" runner="emma">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="ADDITIONAL_CLASS_PATH" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit" enabled="false" merge="false" runner="emma">
       <module name="" />
@@ -347,7 +532,9 @@
       </option>
       <envs />
       <method>
-        <option name="Make" value="true" />
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application" enabled="false" merge="false" runner="emma">
@@ -363,7 +550,9 @@
       <module name="" />
       <envs />
       <method>
-        <option name="Make" value="true" />
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
     <configuration default="false" name="All Tests" type="JUnit" factoryName="JUnit" enabled="false" merge="false" runner="emma">
@@ -397,42 +586,16 @@
       <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method>
-        <option name="Make" value="true" />
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Application.TechTest" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.All Tests" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.TestUserDao.testFindById" />
     </list>
-    <configuration default="true" type="TestNG" factoryName="TestNG" enabled="false" merge="false">
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="ADDITIONAL_CLASS_PATH" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="wholeProject" />
-      </option>
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method>
-        <option name="Make" value="true" />
-      </method>
-    </configuration>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
@@ -571,11 +734,6 @@
     <option name="LOCK_ON_CHECKOUT" value="false" />
     <option name="UNLOCK_ON_CHECKIN" value="false" />
   </component>
-  <component name="StructureViewFactory">
-    <option name="AUTOSCROLL_MODE" value="true" />
-    <option name="AUTOSCROLL_FROM_SOURCE" value="false" />
-    <option name="ACTIVE_ACTIONS" value="" />
-  </component>
   <component name="SvnConfiguration">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
@@ -584,7 +742,27 @@
     <option name="MERGE_DRY_RUN" value="false" />
     <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
     <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <configuration useDefault="true">/Users/alg/.subversion</configuration>
     <myIsUseDefaultProxy>true</myIsUseDefaultProxy>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <option name="tasks">
+      <list>
+        <task id="Default" summary="Default task">
+          <option name="active" value="true" />
+          <option name="changeLists">
+            <list>
+              <ChangeListInfo id="b2378443-f990-4f22-8a38-02bf892c0387" name="Default" comment="" />
+            </list>
+          </option>
+          <option name="updated" value="1250078252434" />
+        </task>
+      </list>
+    </option>
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -607,36 +785,36 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="6" y="22" width="1436" height="813" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="22" width="1440" height="828" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Web Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" />
-      <window_info id="Dataflow to this" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="true" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2910663" sideWeight="0.48043185" order="0" side_tool="false" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32793522" sideWeight="0.5" order="1" side_tool="false" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3994602" sideWeight="0.5" order="6" side_tool="false" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32793522" sideWeight="0.5" order="8" side_tool="false" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24316546" sideWeight="0.66241133" order="0" side_tool="false" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32765958" sideWeight="0.5" order="1" side_tool="false" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32765958" sideWeight="0.5" order="8" side_tool="false" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32793522" sideWeight="0.5" order="8" side_tool="false" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3805668" sideWeight="0.5" order="2" side_tool="false" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38014185" sideWeight="0.5" order="2" side_tool="false" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5092199" sideWeight="0.5" order="3" side_tool="false" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51012146" sideWeight="0.5" order="3" side_tool="false" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="8" side_tool="false" />
+      <window_info id="Dataflow to this" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" />
       <window_info id="Maven projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" />
       <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" />
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="8" side_tool="false" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" />
       <window_info id="EJB" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3994602" sideWeight="0.5" order="6" side_tool="false" />
       <window_info id="Profile" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" />
@@ -652,6 +830,7 @@
     <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
     <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
     <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="LAST_COMMIT_MESSAGE" value="Avoiding cyclic discovery" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
@@ -731,124 +910,164 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/service/meta/discovery/CompositeDiscoverer.java">
+    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/ServiceServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="171" column="64" selection-start="5635" selection-end="5635" vertical-scroll-proportion="0.027210884">
+        <state line="36" column="25" selection-start="1686" selection-end="1686" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/service/meta/discovery/IBlogDiscoverer.java">
+    <entry file="jar://$PROJECT_DIR$/lib/bbutilities.jar!/com/salas/bbutilities/opml/objects/OPMLGuide.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="8" selection-start="2904" selection-end="2904" vertical-scroll-proportion="1.4036281">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/service/meta/discovery/AbstractDiscoverer.java">
+    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/service/sync/SynchronizationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="55" selection-start="2273" selection-end="2273" vertical-scroll-proportion="1.3134328">
-          <folding>
-            <marker date="1197374973000" expanded="false" signature="1143:1292" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/service/meta/discovery/technorati/TechnoratiServiceClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="106" selection-start="3969" selection-end="3969" vertical-scroll-proportion="0.4950249">
+        <state line="227" column="36" selection-start="8184" selection-end="8184" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/service/meta/discovery/TechnoratiDiscoverer.java">
+    <entry file="file://$PROJECT_DIR$/src/test/com/salas/bbservice/persistence/BasicDaoTestCase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="46" selection-start="4851" selection-end="4851" vertical-scroll-proportion="0.39942113">
+        <state line="93" column="86" selection-start="4239" selection-end="4239" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/service/meta/discovery/technorati/TechnoratiServiceException.java">
+    <entry file="file://$PROJECT_DIR$/src/test/com/salas/bbservice/service/sync/TestSynchronizationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="13" selection-start="1212" selection-end="1212" vertical-scroll-proportion="0.12156295">
+        <state line="351" column="30" selection-start="11875" selection-end="11875" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/IInitializableHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/persistence/IUserGuideDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="9" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.15629523">
+        <state line="32" column="17" selection-start="1247" selection-end="1247" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/HandlerConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/persistence/dao.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="13" selection-start="1241" selection-end="1241" vertical-scroll-proportion="0.15629523">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/utils/ApplicationProperties.java">
+    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/persistence/sqlmap/UserGuideSqlMapDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="196" column="21" selection-start="6313" selection-end="6313" vertical-scroll-proportion="0.0">
+        <state line="35" column="13" selection-start="1423" selection-end="1423" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/service/meta/discovery/HtmlDiscoverer.java">
+    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/persistence/sqlmap/xml/UserGuide.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="158" column="39" selection-start="5391" selection-end="5391" vertical-scroll-proportion="0.0">
+        <state line="9" column="4" selection-start="520" selection-end="520" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///System/Library/Frameworks/JavaVM.framework/Versions/1.5/Home/src.jar!/src/java/net/SocketInputStream.java">
+    <entry file="file://$PROJECT_DIR$/src/conf/database.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="23" selection-start="2261" selection-end="2261" vertical-scroll-proportion="0.0">
+        <state line="9" column="0" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/TechTest.java">
+    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/domain/UserSearchFeed.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="45" selection-start="860" selection-end="860" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/utils/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="346" column="28" selection-start="10185" selection-end="10185" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1225092794000" expanded="false" signature="1120:1328" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/service/meta/MetaHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="96" selection-start="1812" selection-end="1812" vertical-scroll-proportion="0.0">
+        <state line="73" column="11" selection-start="2527" selection-end="2527" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/service/meta/discovery/DiscoveryTask.java">
+    <entry file="file://$PROJECT_DIR$/src/ddl/bbservice-schema.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="508" column="23" selection-start="16538" selection-end="16538" vertical-scroll-proportion="0.0">
+        <state line="228" column="60" selection-start="9195" selection-end="9195" vertical-scroll-proportion="-96.23077">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/conf/app.properties">
+    <entry file="file://$PROJECT_DIR$/src/test/com/salas/bbservice/plans/TestPlansHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="2638" selection-end="2797" vertical-scroll-proportion="0.7221418">
+        <state line="199" column="127" selection-start="5908" selection-end="5908" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/salas/bbservice/persistence/TestUserSearchFeedDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="226" column="0" selection-start="6633" selection-end="6633" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/salas/bbservice/persistence/TestUserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="218" column="0" selection-start="6341" selection-end="6341" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/com/salas/bbservice/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="8" selection-start="1479" selection-end="1479" vertical-scroll-proportion="0.29179332">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <option name="states">
+      <map>
+        <entry key="Copyright.UI">
+          <value>
+            <UIState>
+              <option name="proportions">
+                <SplitterProportionsDataImpl />
+              </option>
+            </UIState>
+          </value>
+        </entry>
+        <entry key="ScopeChooserConfigurable.UI">
+          <value>
+            <UIState>
+              <option name="proportions">
+                <SplitterProportionsDataImpl />
+              </option>
+            </UIState>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="myStates">
+      <map>
+        <entry key="Copyright.UI">
+          <value>
+            <UIState>
+              <option name="proportions">
+                <SplitterProportionsDataImpl />
+              </option>
+            </UIState>
+          </value>
+        </entry>
+        <entry key="ScopeChooserConfigurable.UI">
+          <value>
+            <UIState>
+              <option name="proportions">
+                <SplitterProportionsDataImpl />
+              </option>
+            </UIState>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
 

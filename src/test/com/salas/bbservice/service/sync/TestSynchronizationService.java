@@ -354,7 +354,7 @@ public class TestSynchronizationService extends BasicDaoTestCase
         ArrayList<DefaultOPMLFeed> items;
 
         u = new User("A", "_B", "C", "D", false);
-        g = new OPMLGuide("A", "B", false, "A", "B", true, 2, true, false);
+        g = new OPMLGuide("A", "B", false, "A", "B", true, 2, true, false, false);
         items = new ArrayList<DefaultOPMLFeed>();
         items.add(new DirectOPMLFeed("titleA", "xmlA", "htmlA", 1, "a", "a", -1, null, null, null, null, null, null, false, 1, false, 1, false));
         items.add(new QueryOPMLFeed("qfA", 0, "A B", "A", "A", "A", -1, -1, 1, false, 2, true));
@@ -363,9 +363,9 @@ public class TestSynchronizationService extends BasicDaoTestCase
         g.setFeeds(items);
 
         OPMLReadingList rl = new OPMLReadingList("title", "file://test");
-        items = new ArrayList<DefaultOPMLFeed>();
-        items.add(new DirectOPMLFeed("titleC", "xmlC", "htmlC", 3, "c", "c", -1, null, null, null, null, null, null, false, 0, false, 1, false));
-        rl.setFeeds(items);
+        ArrayList<DirectOPMLFeed> iitems = new ArrayList<DirectOPMLFeed>();
+        iitems.add(new DirectOPMLFeed("titleC", "xmlC", "htmlC", 3, "c", "c", -1, null, null, null, null, null, null, false, 0, false, 1, false));
+        rl.setFeeds(iitems);
         g.add(rl);
 
         cleanChannelByXmlUrl("xmlA");
