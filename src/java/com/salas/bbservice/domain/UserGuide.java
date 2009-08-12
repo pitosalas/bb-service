@@ -344,6 +344,16 @@ public class UserGuide
     }
 
     /**
+     * Setting the mobility flag.
+     *
+     * @param flag flag.
+     */
+    public void setMobile(boolean flag)
+    {
+        this.mobile = flag;
+    }
+
+    /**
      * Indicates whether some other object is "equal to" this one.
      *
      * @param o the reference object with which to compare.
