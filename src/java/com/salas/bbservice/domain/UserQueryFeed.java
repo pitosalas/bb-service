@@ -46,6 +46,7 @@ public class UserQueryFeed extends UserDataFeed
     private int     viewType = -1;
     private boolean viewModeEnabled = false;
     private int     viewMode = -1;
+    private int     handlingType = 0;
 
     private boolean dedupEnabled;
     private int     dedupFrom = -1;
@@ -76,10 +77,12 @@ public class UserQueryFeed extends UserDataFeed
      * @param aViewModeEnabled  the state of view mode.
      * @param aViewMode         the view mode.
      * @param aAscendingSorting the ascending sorting flag.
+     * @param aHandlingType     handling type.
      */
     public UserQueryFeed(int aUserGuideId, int aIndex, String aTitle, int aQueryType,
         String aQueryParam, String aReadArticlesKeys, String aPinnedArticlesKeys, int aLimit, int aRating,
-        int aViewType, boolean aViewModeEnabled, int aViewMode, Boolean aAscendingSorting)
+        int aViewType, boolean aViewModeEnabled, int aViewMode, Boolean aAscendingSorting,
+        int aHandlingType)
     {
         ascendingSorting = aAscendingSorting;
         userGuideId = aUserGuideId;
@@ -94,6 +97,7 @@ public class UserQueryFeed extends UserDataFeed
         viewType = aViewType;
         viewModeEnabled = aViewModeEnabled;
         viewMode = aViewMode;
+        handlingType = aHandlingType;
     }
 
     /**
@@ -443,6 +447,27 @@ public class UserQueryFeed extends UserDataFeed
         this.ascendingSorting = asc;
     }
 
+
+    /**
+     * Returns the handling type.
+     *
+     * @return handling type.
+     */
+    public int getHandlingType()
+    {
+        return handlingType;
+    }
+
+    /**
+     * Sets the handling type.
+     *
+     * @param type type.
+     */
+    public void setHandlingType(int type)
+    {
+        this.handlingType = type;
+    }
+
     /**
      * Indicates whether some other object is "equal to" this one.
      *
@@ -473,6 +498,7 @@ public class UserQueryFeed extends UserDataFeed
 
         if (viewMode != feed.viewMode) return false;
         if (viewModeEnabled != feed.viewModeEnabled) return false;
+        if (handlingType != feed.handlingType) return false;
 
         if (dedupEnabled != feed.dedupEnabled) return false;
         if (dedupFrom != feed.dedupFrom) return false;
@@ -525,6 +551,7 @@ public class UserQueryFeed extends UserDataFeed
             ", dedupFrom=" + dedupFrom +
             ", dedupTo=" + dedupTo +
             ", ascendingSorting=" + ascendingSorting +
+            ", handlingType=" + handlingType +
             super.toString();
     }
 }

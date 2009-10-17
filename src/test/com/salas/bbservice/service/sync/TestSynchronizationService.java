@@ -54,8 +54,8 @@ public class TestSynchronizationService extends BasicDaoTestCase
         DirectOPMLFeed oc1, oc2;
 
         c = new Channel("", "", "xml");
-        oc1 = new DirectOPMLFeed("titleA", "xml", "htmlA", 1, null, null, -1, null, null, null, null, null, null, true, 1, true, 1, true);
-        oc2 = new DirectOPMLFeed("titleB", "xml", "htmlB", 1, null, null, -1, null, null, null, null, null, null, false, 1, false, 2, false);
+        oc1 = new DirectOPMLFeed("titleA", "xml", "htmlA", 1, null, null, -1, null, null, null, null, null, null, true, 1, true, 1, true, 0);
+        oc2 = new DirectOPMLFeed("titleB", "xml", "htmlB", 1, null, null, -1, null, null, null, null, null, null, false, 1, false, 2, false, 0);
 
         // add global channel
         cleanChannelByXmlUrl("xml");
@@ -94,7 +94,7 @@ public class TestSynchronizationService extends BasicDaoTestCase
         UserChannel uc;
         DirectOPMLFeed oc;
 
-        oc = new DirectOPMLFeed("titleA", "xml", "htmlA", 1, "a,b", "c,d", 2, "a", "b", "c", "d", "e", "f", false, 1, false, 1, false);
+        oc = new DirectOPMLFeed("titleA", "xml", "htmlA", 1, "a,b", "c,d", 2, "a", "b", "c", "d", "e", "f", false, 1, false, 1, false, 0);
         oc.setUpdatePeriod(2l);
 
         cleanChannelByXmlUrl("xml");
@@ -136,7 +136,7 @@ public class TestSynchronizationService extends BasicDaoTestCase
         DirectOPMLFeed oc;
 
         c = new Channel("", "", "xml");
-        oc = new DirectOPMLFeed("titleA", "xml", "htmlA", 1, "a,b", "c,d", -1, "a", "b", "c", "d", "e", "f", false, 1, false, 1, false);
+        oc = new DirectOPMLFeed("titleA", "xml", "htmlA", 1, "a,b", "c,d", -1, "a", "b", "c", "d", "e", "f", false, 1, false, 1, false, 0);
 
         cleanChannelByXmlUrl("xml");
         channelDao.add(c);
@@ -181,16 +181,16 @@ public class TestSynchronizationService extends BasicDaoTestCase
         c1 = new Channel("A", "B", "C");
         c2 = new Channel("D", "E", "F");
         ug = guide1();
-        uc1 = new UserChannel(-1, -1, 1, 0, null, null, -1, null, null, null, null, null, null, null, false, 1, true, 2, true);
-        uc2 = new UserChannel(-1, -1, 2, 1, null, null, 2, "a", "b", "c", "d", "e", "f", null, false, 1, true, 2, false);
+        uc1 = new UserChannel(-1, -1, 1, 0, null, null, -1, null, null, null, null, null, null, null, false, 1, true, 2, true, 0);
+        uc2 = new UserChannel(-1, -1, 2, 1, null, null, 2, "a", "b", "c", "d", "e", "f", null, false, 1, true, 2, false, 0);
         uc2.setUpdatePeriod(1);
-        uqf1 = new UserQueryFeed(-1, 3, "a", 1, "b", "c", "d", 1, 2, 1, true, 2, null);
+        uqf1 = new UserQueryFeed(-1, 3, "a", 1, "b", "c", "d", 1, 2, 1, true, 2, null, 0);
         uqf1.setDedupEnabled(true);
         uqf1.setDedupFrom(5);
         uqf1.setDedupTo(6);
-        uqf2 = new UserQueryFeed(-1, 4, "b", 1, "c", "d", "e", 1, 2, 1, true, 2, null);
+        uqf2 = new UserQueryFeed(-1, 4, "b", 1, "c", "d", "e", 1, 2, 1, true, 2, null, 0);
         uqf2.setUpdatePeriod(2);
-        usf = new UserSearchFeed(-1, 5, "a", "b", 1, 2, 1, true, 2, null);
+        usf = new UserSearchFeed(-1, 5, "a", "b", 1, 2, 1, true, 2, null, 0);
         usf.setDedupEnabled(true);
         usf.setDedupFrom(2);
         usf.setDedupTo(3);
@@ -263,8 +263,8 @@ public class TestSynchronizationService extends BasicDaoTestCase
         u = new User("A", "B", "C", "D", false);
         c1 = new Channel("A", "B", "C");
         ug = guide1();
-        uc1 = new UserChannel(-1, -1, 1, 0, null, null, -1, null, null, null, null, null, null, null, false, 1, true, 2, true);
-        uc2 = new UserChannel(-1, -1, 2, 1, null, null, 2, "a", "b", "c", "d", "e", "f", null, false, 1, true, 2, false);
+        uc1 = new UserChannel(-1, -1, 1, 0, null, null, -1, null, null, null, null, null, null, null, false, 1, true, 2, true, 0);
+        uc2 = new UserChannel(-1, -1, 2, 1, null, null, 2, "a", "b", "c", "d", "e", "f", null, false, 1, true, 2, false, 0);
 
         cleanChannelByXmlUrl("C");
 
@@ -312,8 +312,8 @@ public class TestSynchronizationService extends BasicDaoTestCase
 
         u = new User("A", "B", "C", "D", false);
         ug = guide1();
-        f1 = new UserQueryFeed(-1, 1, "1", 1, "1 2", "1", "1", -1, -1, 1, true, 2, true);
-        f2 = new UserQueryFeed(-1, 2, "2", 2, "2 3", "2", "2", 1, 1, 1, true, 2, null);
+        f1 = new UserQueryFeed(-1, 1, "1", 1, "1 2", "1", "1", -1, -1, 1, true, 2, true, 0);
+        f2 = new UserQueryFeed(-1, 2, "2", 2, "2 3", "2", "2", 1, 1, 1, true, 2, null, 0);
         f2.setDedupEnabled(true);
         f2.setDedupFrom(2);
         f2.setDedupTo(3);
@@ -356,15 +356,15 @@ public class TestSynchronizationService extends BasicDaoTestCase
         u = new User("A", "_B", "C", "D", false);
         g = new OPMLGuide("A", "B", false, "A", "B", true, 2, true, false, false);
         items = new ArrayList<DefaultOPMLFeed>();
-        items.add(new DirectOPMLFeed("titleA", "xmlA", "htmlA", 1, "a", "a", -1, null, null, null, null, null, null, false, 1, false, 1, false));
-        items.add(new QueryOPMLFeed("qfA", 0, "A B", "A", "A", "A", -1, -1, 1, false, 2, true));
-        items.add(new QueryOPMLFeed("qfB", 1, "B", "B", "", "B", 1, 1, 1, false, 2, null));
-        items.add(new DirectOPMLFeed("titleB", "xmlB", "htmlB", 2, "b", "b", -1, null, null, null, null, null, null, false, 1, false, 2, null));
+        items.add(new DirectOPMLFeed("titleA", "xmlA", "htmlA", 1, "a", "a", -1, null, null, null, null, null, null, false, 1, false, 1, false, 0));
+        items.add(new QueryOPMLFeed("qfA", 0, "A B", "A", "A", "A", -1, -1, 1, false, 2, true, 0));
+        items.add(new QueryOPMLFeed("qfB", 1, "B", "B", "", "B", 1, 1, 1, false, 2, null, 0));
+        items.add(new DirectOPMLFeed("titleB", "xmlB", "htmlB", 2, "b", "b", -1, null, null, null, null, null, null, false, 1, false, 2, null, 0));
         g.setFeeds(items);
 
         OPMLReadingList rl = new OPMLReadingList("title", "file://test");
         ArrayList<DirectOPMLFeed> iitems = new ArrayList<DirectOPMLFeed>();
-        iitems.add(new DirectOPMLFeed("titleC", "xmlC", "htmlC", 3, "c", "c", -1, null, null, null, null, null, null, false, 0, false, 1, false));
+        iitems.add(new DirectOPMLFeed("titleC", "xmlC", "htmlC", 3, "c", "c", -1, null, null, null, null, null, null, false, 0, false, 1, false, 0));
         rl.setFeeds(iitems);
         g.add(rl);
 
@@ -462,7 +462,7 @@ public class TestSynchronizationService extends BasicDaoTestCase
         DirectOPMLFeed oc;
 
         c = new Channel("A", "B", "C");
-        uc = new UserChannel(-1, -1, 1, 0, "a", "b", 1, "a", "b", "c", "d", "e", "f", null, false, 1, true, 2, true);
+        uc = new UserChannel(-1, -1, 1, 0, "a", "b", 1, "a", "b", "c", "d", "e", "f", null, false, 1, true, 2, true, 0);
         uc.setUpdatePeriod(1l);
 
         cleanChannelByXmlUrl("C");
@@ -508,10 +508,10 @@ public class TestSynchronizationService extends BasicDaoTestCase
         c2 = new Channel("D", "E", "F");
         c3 = new Channel("G", "H", "I");
         ug = guide1();
-        uc1 = new UserChannel(-1, -1, 1, 0, null, null, -1, null, null, null, null, null, null, null, false, 1, true, 2, null);
-        uc2 = new UserChannel(-1, -1, 2, 1, null, null, 1, null, null, null, null, null, null, null, false, 1, true, 2, true);
+        uc1 = new UserChannel(-1, -1, 1, 0, null, null, -1, null, null, null, null, null, null, null, false, 1, true, 2, null, 0);
+        uc2 = new UserChannel(-1, -1, 2, 1, null, null, 1, null, null, null, null, null, null, null, false, 1, true, 2, true, 0);
         rl = new UserReadingList(-1, "test", "file://test");
-        rlch = new UserChannel(-1, -1, 2, 2, null, null, 1, null, null, null, null, null, null, null, false, 1, true, 2, false);
+        rlch = new UserChannel(-1, -1, 2, 2, null, null, 1, null, null, null, null, null, null, null, false, 1, true, 2, false, 0);
 
         cleanChannelByXmlUrl("C");
         cleanChannelByXmlUrl("F");
@@ -699,8 +699,8 @@ public class TestSynchronizationService extends BasicDaoTestCase
         List res;
 
         // Channels only
-        channels.add(new UserChannel(1, 0, 0, 0, "0", "0", 0, "0", "0", "0", "0", "0", "0", null, false, 1, true, 2, null));
-        channels.add(new UserChannel(1, 1, 1, 1, "1", "1", 1, "1", "1", "1", "1", "1", "1", null, false, 1, true, 2, null));
+        channels.add(new UserChannel(1, 0, 0, 0, "0", "0", 0, "0", "0", "0", "0", "0", "0", null, false, 1, true, 2, null, 0));
+        channels.add(new UserChannel(1, 1, 1, 1, "1", "1", 1, "1", "1", "1", "1", "1", "1", null, false, 1, true, 2, null, 0));
 
         res = SynchronizationService.combineFeeds(channels, queryFeeds, searchFeeds);
         assertEquals("There should be two channels in the list.", 2, res.size());
@@ -711,8 +711,8 @@ public class TestSynchronizationService extends BasicDaoTestCase
 
         // Query feeds only
         channels.clear();
-        queryFeeds.add(new UserQueryFeed(0, 0, "0", 0, "0", "0", "0", -1, -1, 1, true, 2, true));
-        queryFeeds.add(new UserQueryFeed(1, 1, "1", 1, "1", "1", "1", 1, 1, 1, true, 2, true));
+        queryFeeds.add(new UserQueryFeed(0, 0, "0", 0, "0", "0", "0", -1, -1, 1, true, 2, true, 0));
+        queryFeeds.add(new UserQueryFeed(1, 1, "1", 1, "1", "1", "1", 1, 1, 1, true, 2, true, 0));
 
         res = SynchronizationService.combineFeeds(channels, queryFeeds, searchFeeds);
         assertEquals("There should be two query feeds in the list.", 2, res.size());
@@ -724,8 +724,8 @@ public class TestSynchronizationService extends BasicDaoTestCase
         // Query feeds only
         channels.clear();
         queryFeeds.clear();
-        searchFeeds.add(new UserSearchFeed(0, 0, "0", "0", -1, -1, 1, true, 2, true));
-        searchFeeds.add(new UserSearchFeed(1, 1, "1", "1", 1, 1, 1, true, 2, true));
+        searchFeeds.add(new UserSearchFeed(0, 0, "0", "0", -1, -1, 1, true, 2, true, 0));
+        searchFeeds.add(new UserSearchFeed(1, 1, "1", "1", 1, 1, 1, true, 2, true, 0));
 
         res = SynchronizationService.combineFeeds(channels, queryFeeds, searchFeeds);
         assertEquals("There should be two search feeds in the list.", 2, res.size());
@@ -745,12 +745,12 @@ public class TestSynchronizationService extends BasicDaoTestCase
         List<UserSearchFeed> searchFeeds = new ArrayList<UserSearchFeed>();
 
         // C0, Q1, C1, C2, Q3 -- conflicting index 1 (query feed goes first)
-        channels.add(new UserChannel(1, 0, 0, 0, "0", "0", 0, "0", "0", "0", "0", "0", "0", null, false, 1, true, 2, null));
-        channels.add(new UserChannel(1, 1, 1, 1, "1", "1", 1, "1", "1", "1", "1", "1", "1", null, false, 1, true, 2, null));
-        channels.add(new UserChannel(1, 2, 2, 2, "2", "2", 2, "2", "2", "2", "2", "2", "2", null, false, 1, true, 2, null));
-        queryFeeds.add(new UserQueryFeed(1, 1, "0", 0, "0", "0", "0", -1, -1, 1, true, 2, true));
-        queryFeeds.add(new UserQueryFeed(1, 3, "3", 3, "3", "3", "3", 1, 1, 1, true, 2, true));
-        searchFeeds.add(new UserSearchFeed(1, 4, "4", "4", 1, 1, 1, true, 2, true));
+        channels.add(new UserChannel(1, 0, 0, 0, "0", "0", 0, "0", "0", "0", "0", "0", "0", null, false, 1, true, 2, null, 0));
+        channels.add(new UserChannel(1, 1, 1, 1, "1", "1", 1, "1", "1", "1", "1", "1", "1", null, false, 1, true, 2, null, 0));
+        channels.add(new UserChannel(1, 2, 2, 2, "2", "2", 2, "2", "2", "2", "2", "2", "2", null, false, 1, true, 2, null, 0));
+        queryFeeds.add(new UserQueryFeed(1, 1, "0", 0, "0", "0", "0", -1, -1, 1, true, 2, true, 0));
+        queryFeeds.add(new UserQueryFeed(1, 3, "3", 3, "3", "3", "3", 1, 1, 1, true, 2, true, 0));
+        searchFeeds.add(new UserSearchFeed(1, 4, "4", "4", 1, 1, 1, true, 2, true, 0));
 
         List res = SynchronizationService.combineFeeds(channels, queryFeeds, searchFeeds);
         assertEquals("Wrong number of items.", 6, res.size());

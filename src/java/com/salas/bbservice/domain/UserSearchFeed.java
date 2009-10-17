@@ -44,6 +44,8 @@ public class UserSearchFeed
     private boolean viewModeEnabled = false;
     private int     viewMode = -1;
 
+    private int     handlingType = 0;
+
     private boolean dedupEnabled;
     private int     dedupFrom = -1;
     private int     dedupTo = -1;
@@ -70,10 +72,11 @@ public class UserSearchFeed
      * @param aViewModeEnabled  the state of view mode.
      * @param aViewMode         the view mode.
      * @param aAscendingSorting the ascending sorting flag.
+     * @param aHandlingType     handling type.
      */
     public UserSearchFeed(int aUserGuideId, int aIndex, String aTitle,
         String aQuery, int aLimit, int aRating, int aViewType, boolean aViewModeEnabled, int aViewMode,
-        Boolean aAscendingSorting)
+        Boolean aAscendingSorting, int aHandlingType)
     {
         ascendingSorting = aAscendingSorting;
         userGuideId = aUserGuideId;
@@ -85,6 +88,7 @@ public class UserSearchFeed
         viewType = aViewType;
         viewModeEnabled = aViewModeEnabled;
         viewMode = aViewMode;
+        handlingType = aHandlingType;
     }
 
     /**
@@ -353,6 +357,26 @@ public class UserSearchFeed
     }
 
     /**
+     * Returns the handling type.
+     *
+     * @return handling type.
+     */
+    public int getHandlingType()
+    {
+        return handlingType;
+    }
+
+    /**
+     * Sets the handling type.
+     *
+     * @param type type.
+     */
+    public void setHandlingType(int type)
+    {
+        this.handlingType = type;
+    }
+
+    /**
      * Returns the ascending sorting state.
      *
      * @return ascending sorting.
@@ -396,6 +420,7 @@ public class UserSearchFeed
 
         if (viewMode != feed.viewMode) return false;
         if (viewModeEnabled != feed.viewModeEnabled) return false;
+        if (handlingType != feed.handlingType) return false;
 
         if (dedupEnabled != feed.dedupEnabled) return false;
         if (dedupFrom != feed.dedupFrom) return false;
@@ -444,6 +469,7 @@ public class UserSearchFeed
             ", dedupEnabled=" + dedupEnabled +
             ", dedupFrom=" + dedupFrom +
             ", dedupTo=" + dedupTo +
-            ", ascendingSorting=" + ascendingSorting;
+            ", ascendingSorting=" + ascendingSorting +
+            ", handlingType=" + handlingType;
     }
 }

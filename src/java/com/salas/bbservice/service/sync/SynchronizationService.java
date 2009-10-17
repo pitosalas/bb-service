@@ -320,9 +320,10 @@ public final class SynchronizationService
         int viewType = userSearchFeed.getViewType();
         boolean viewModeEnabled = userSearchFeed.isViewModeEnabled();
         int viewMode = userSearchFeed.getViewMode();
+        int handlingType = userSearchFeed.getHandlingType();
 
         SearchOPMLFeed feed = new SearchOPMLFeed(title, query, limit, rating, viewType, viewModeEnabled, viewMode,
-            userSearchFeed.getAscendingSorting());
+            userSearchFeed.getAscendingSorting(), handlingType);
 
         feed.setDedupEnabled(userSearchFeed.isDedupEnabled());
         feed.setDedupFrom(userSearchFeed.getDedupFrom());
@@ -352,7 +353,8 @@ public final class SynchronizationService
 
         QueryOPMLFeed ofeed = new QueryOPMLFeed(title, queryType, parameter, "",
             readArticlesKeys, pinnedArticlesKeys, userQueryFeed.getLimit(), rating,
-            viewType, viewModeEnabled, viewMode, userQueryFeed.getAscendingSorting());
+            viewType, viewModeEnabled, viewMode, userQueryFeed.getAscendingSorting(),
+            userQueryFeed.getHandlingType());
 
         ofeed.setDedupEnabled(userQueryFeed.isDedupEnabled());
         ofeed.setDedupFrom(userQueryFeed.getDedupFrom());
@@ -404,7 +406,8 @@ public final class SynchronizationService
                 userChannel.getViewType(),
                 userChannel.isViewModeEnabled(),
                 userChannel.getViewMode(),
-                userChannel.getAscendingSorting());
+                userChannel.getAscendingSorting(),
+                userChannel.getHandlingType());
 
         fillOPMLDataFeedProperties(ofeed, userChannel);
 
@@ -531,9 +534,10 @@ public final class SynchronizationService
         int viewType = aOpmlSearchFeed.getViewType();
         boolean viewModeEnabled = aOpmlSearchFeed.isViewModeEnabled();
         int viewMode = aOpmlSearchFeed.getViewMode();
+        int handlingType = aOpmlSearchFeed.getHandlingType();
 
         UserSearchFeed feed = new UserSearchFeed(-1, aIndex, title, query, limit, rating,
-            viewType, viewModeEnabled, viewMode, aOpmlSearchFeed.getAscendingSorting());
+            viewType, viewModeEnabled, viewMode, aOpmlSearchFeed.getAscendingSorting(), handlingType);
 
         feed.setDedupEnabled(aOpmlSearchFeed.isDedupEnabled());
         feed.setDedupFrom(aOpmlSearchFeed.getDedupFrom());
@@ -558,7 +562,7 @@ public final class SynchronizationService
 
         UserQueryFeed feed = new UserQueryFeed(-1, aIndex, title, queryType, parameter,
             readArticlesKeys, pinnedArticlesKeys, limit, rating, viewType, viewModeEnabled, viewMode,
-            ofeed.getAscendingSorting());
+            ofeed.getAscendingSorting(), ofeed.getHandlingType());
 
         feed.setDedupEnabled(ofeed.isDedupEnabled());
         feed.setDedupFrom(ofeed.getDedupFrom());
@@ -678,7 +682,8 @@ public final class SynchronizationService
                 ofeed.getViewType(),
                 ofeed.isViewModeEnabled(),
                 ofeed.getViewMode(),
-                ofeed.getAscendingSorting());
+                ofeed.getAscendingSorting(),
+                ofeed.getHandlingType());
 
         fillDataFeedProperties(feed, ofeed);
 

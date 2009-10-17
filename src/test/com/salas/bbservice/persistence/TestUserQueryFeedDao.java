@@ -40,7 +40,7 @@ public class TestUserQueryFeedDao extends BasicDaoTestCase
      */
     public void testCreateChannel()
     {
-        UserQueryFeed f = new UserQueryFeed(1, 2, "a", 1, "b", "c", "d", 1, 1, 1, true, 2, true);
+        UserQueryFeed f = new UserQueryFeed(1, 2, "a", 1, "b", "c", "d", 1, 1, 1, true, 2, true, 0);
         assertEquals(-1, f.getId());
         assertEquals(1, f.getUserGuideId());
         assertEquals(2, f.getIndex());
@@ -64,7 +64,7 @@ public class TestUserQueryFeedDao extends BasicDaoTestCase
     {
         UserQueryFeed f;
 
-        f = new UserQueryFeed(-1, 2, "a", 1, "b", "c", "d", 1, -1, 1, false, 1, true);
+        f = new UserQueryFeed(-1, 2, "a", 1, "b", "c", "d", 1, -1, 1, false, 1, true, 0);
 
         try
         {
@@ -87,7 +87,7 @@ public class TestUserQueryFeedDao extends BasicDaoTestCase
 
         u = new User("A", "B", "P", "L", false);
         g = guide1();
-        f = new UserQueryFeed(-1, 2, "a", 1, "b", "c", "d", 1, 1, 1, true, 1, true);
+        f = new UserQueryFeed(-1, 2, "a", 1, "b", "c", "d", 1, 1, 1, true, 1, true, 0);
         f.setDedupEnabled(true);
         f.setDedupFrom(2);
         f.setDedupTo(3);
@@ -129,7 +129,7 @@ public class TestUserQueryFeedDao extends BasicDaoTestCase
 
         u = new User("A", "B", "P", "L", false);
         g = guide1();
-        f = new UserQueryFeed(-1, 2, "a", 1, "b", "c", "d", 1, -1, 1, true, 2, true);
+        f = new UserQueryFeed(-1, 2, "a", 1, "b", "c", "d", 1, -1, 1, true, 2, true, 0);
 
         try
         {
@@ -168,7 +168,7 @@ public class TestUserQueryFeedDao extends BasicDaoTestCase
 
         u = new User("A", "B", "P", "L", false);
         g = guide1();
-        f = new UserQueryFeed(-1, 2, "a", 1, "b", "c", "d", 1, -1, 1, true, 2, true);
+        f = new UserQueryFeed(-1, 2, "a", 1, "b", "c", "d", 1, -1, 1, true, 2, true, 0);
 
         try
         {
@@ -205,8 +205,8 @@ public class TestUserQueryFeedDao extends BasicDaoTestCase
 
         u = new User("A", "B", "C", "D", false);
         g = guide1();
-        f1 = new UserQueryFeed(-1, 2, "a", 1, "b", "c", "d", 1, -1, 1, true, 2, true);
-        f2 = new UserQueryFeed(-1, 3, "b", 2, "c", "d", "e", -1, -1, 1, true, 2, false);
+        f1 = new UserQueryFeed(-1, 2, "a", 1, "b", "c", "d", 1, -1, 1, true, 2, true, 0);
+        f2 = new UserQueryFeed(-1, 3, "b", 2, "c", "d", "e", -1, -1, 1, true, 2, false, 0);
 
         try
         {

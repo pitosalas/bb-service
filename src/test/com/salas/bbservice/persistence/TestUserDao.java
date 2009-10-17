@@ -107,7 +107,7 @@ public class TestUserDao extends BasicDaoTestCase
         u = new User("A", "B", "P", "L", false);
         ch = new Channel("A", "H", "X");
         g = guide1();
-        c = new UserChannel(-1, -1, 1, 2, "a", "a", -1, null, null, null, null, null, null, null, false, 1, false, 1, null);
+        c = new UserChannel(-1, -1, 1, 2, "a", "a", -1, null, null, null, null, null, null, null, false, 1, false, 1, null, 0);
 
         try
         {
@@ -153,7 +153,7 @@ public class TestUserDao extends BasicDaoTestCase
         ch = new Channel("A", "H", "X");
         g1 = guide1();
         g2 = guide2();
-        c = new UserChannel(-1, -1, 1, 2, "a", "a", -1, null, null, null, null, null, null, null, false, 1, false, 1, null);
+        c = new UserChannel(-1, -1, 1, 2, "a", "a", -1, null, null, null, null, null, null, null, false, 1, false, 1, null, 0);
 
         try
         {

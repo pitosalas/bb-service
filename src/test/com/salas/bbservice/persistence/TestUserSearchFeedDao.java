@@ -40,7 +40,7 @@ public class TestUserSearchFeedDao extends BasicDaoTestCase
      */
     public void testCreateChannel()
     {
-        UserSearchFeed f = new UserSearchFeed(1, 2, "a", "b", 1, 1, 1, true, 2, true);
+        UserSearchFeed f = new UserSearchFeed(1, 2, "a", "b", 1, 1, 1, true, 2, true, 0);
         assertEquals(-1, f.getId());
         assertEquals(1, f.getUserGuideId());
         assertEquals(2, f.getIndex());
@@ -61,7 +61,7 @@ public class TestUserSearchFeedDao extends BasicDaoTestCase
     {
         UserSearchFeed f;
 
-        f = new UserSearchFeed(-1, 2, "a", "b", 1, -1, 1, true, 2, true);
+        f = new UserSearchFeed(-1, 2, "a", "b", 1, -1, 1, true, 2, true, 0);
 
         try
         {
@@ -84,7 +84,7 @@ public class TestUserSearchFeedDao extends BasicDaoTestCase
 
         u = new User("A", "B", "P", "L", false);
         g = guide1();
-        f = new UserSearchFeed(-1, 2, "a", "b", 1, 1, 1, true, 2, true);
+        f = new UserSearchFeed(-1, 2, "a", "b", 1, 1, 1, true, 2, true, 0);
         f.setDedupEnabled(true);
         f.setDedupFrom(2);
         f.setDedupTo(3);
@@ -126,7 +126,7 @@ public class TestUserSearchFeedDao extends BasicDaoTestCase
 
         u = new User("A", "B", "P", "L", false);
         g = guide1();
-        f = new UserSearchFeed(-1, 2, "a", "b", 1, -1, 1, true, 2, true);
+        f = new UserSearchFeed(-1, 2, "a", "b", 1, -1, 1, true, 2, true, 0);
 
         try
         {
@@ -165,7 +165,7 @@ public class TestUserSearchFeedDao extends BasicDaoTestCase
 
         u = new User("A", "B", "P", "L", false);
         g = guide1();
-        f = new UserSearchFeed(-1, 2, "a", "b", 1, -1, 1, true, 2, true);
+        f = new UserSearchFeed(-1, 2, "a", "b", 1, -1, 1, true, 2, true, 0);
 
         try
         {
@@ -202,8 +202,8 @@ public class TestUserSearchFeedDao extends BasicDaoTestCase
 
         u = new User("A", "B", "C", "D", false);
         g = guide1();
-        f1 = new UserSearchFeed(-1, 2, "a", "b",  1, -1, 1, true, 2, true);
-        f2 = new UserSearchFeed(-1, 3, "b", "c", -1, -1, 1, true, 2, false);
+        f1 = new UserSearchFeed(-1, 2, "a", "b",  1, -1, 1, true, 2, true, 0);
+        f2 = new UserSearchFeed(-1, 3, "b", "c", -1, -1, 1, true, 2, false, 0);
 
         try
         {

@@ -220,7 +220,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../Downloads/apache-tomcat-5.5.27/common/lib/servlet-api.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../Downloads/Development/apache-tomcat-5.5.27/common/lib/servlet-api.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -238,16 +238,8 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../Downloads/commons-httpclient-3.1/commons-httpclient-3.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../Downloads/commons-collections-3.1/commons-collections-3.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../Libraries/Java/commons-collections-3.1/commons-collections-3.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../Libraries/Java/commons-httpclient-3.1/commons-httpclient-3.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -256,11 +248,11 @@
     <orderEntry type="module-library">
       <library name="xmlrpc-3.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../Downloads/xml-rpc-3.0/commons-logging-1.1.jar!/" />
-          <root url="jar://$MODULE_DIR$/../../../Downloads/xml-rpc-3.0/ws-commons-util-1.0.1.jar!/" />
-          <root url="jar://$MODULE_DIR$/../../../Downloads/xml-rpc-3.0/xmlrpc-common-3.0.jar!/" />
-          <root url="jar://$MODULE_DIR$/../../../Downloads/xml-rpc-3.0/xmlrpc-client-3.0.jar!/" />
-          <root url="jar://$MODULE_DIR$/../../../Downloads/xml-rpc-3.0/xmlrpc-server-3.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../Libraries/Java/xml-rpc-3.0/xmlrpc-server-3.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../Libraries/Java/xml-rpc-3.0/commons-logging-1.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../Libraries/Java/xml-rpc-3.0/xmlrpc-common-3.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../Libraries/Java/xml-rpc-3.0/xmlrpc-client-3.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../Libraries/Java/xml-rpc-3.0/ws-commons-util-1.0.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

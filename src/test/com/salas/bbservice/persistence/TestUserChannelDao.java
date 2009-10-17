@@ -264,11 +264,11 @@ public class TestUserChannelDao extends BasicDaoTestCase
 
     private static UserChannel createFullTestUserChannel()
     {
-        return new UserChannel(1, 2, 3, 4, "a", "a", 5, "b", "c", "d", "e", "f", "g", null, true, 1, true, 2, true);
+        return new UserChannel(1, 2, 3, 4, "a", "a", 5, "b", "c", "d", "e", "f", "g", null, true, 1, true, 2, true, 0);
     }
 
     private static UserChannel createEmptyTestUserChannel()
     {
-        return new UserChannel(-1, -1, 1, 5, null, null, -1, null, null, null, null, null, null, null, false, -1, false, -1, null);
+        return new UserChannel(-1, -1, 1, 5, null, null, -1, null, null, null, null, null, null, null, false, -1, false, -1, null, 0);
     }
 }

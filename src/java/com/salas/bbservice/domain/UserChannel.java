@@ -56,6 +56,7 @@ public class UserChannel extends UserDataFeed
     private int viewType = -1;
     private boolean viewModeEnabled = false;
     private int viewMode = -1;
+    private int handlingType = 0;
 
     private Boolean ascendingSorting = null;
 
@@ -87,13 +88,14 @@ public class UserChannel extends UserDataFeed
      * @param viewType          type of view.
      * @param viewModeEnabled   the state of view mode.
      * @param viewMode          the view mode.
-     * @param aAscendingSorting  the ascending sorting flag.
+     * @param aAscendingSorting the ascending sorting flag.
+     * @param aHandlingType     handling type.
      */
     public UserChannel(int userGuideId, int channelId, int rating, int index,
                        String readArticlesKeys, String pinnedArticlesKeys, int purgeLimit, String customTitle, String customCreator,
                        String customDescription, String tags, String tagsDescription, String tagsExtended,
                        Integer readingListId, boolean disabled, int viewType, boolean viewModeEnabled, int viewMode,
-                       Boolean aAscendingSorting)
+                       Boolean aAscendingSorting, int aHandlingType)
     {
         this.userGuideId = userGuideId;
         this.channelId = channelId;
@@ -114,6 +116,7 @@ public class UserChannel extends UserDataFeed
         this.viewModeEnabled = viewModeEnabled;
         this.viewMode = viewMode;
         this.ascendingSorting = aAscendingSorting;
+        this.handlingType = aHandlingType;
     }
 
     /**
@@ -525,6 +528,27 @@ public class UserChannel extends UserDataFeed
         this.ascendingSorting = asc;
     }
 
+
+    /**
+     * Returns the handling type.
+     *
+     * @return handling type.
+     */
+    public int getHandlingType()
+    {
+        return handlingType;
+    }
+
+    /**
+     * Sets the handling type.
+     *
+     * @param type type.
+     */
+    public void setHandlingType(int type)
+    {
+        this.handlingType = type;
+    }
+
     /**
      * Indicates whether some other object is "equal to" this one.
      *
@@ -567,6 +591,7 @@ public class UserChannel extends UserDataFeed
         if (viewType != feed.viewType) return false;
         if (viewMode != feed.viewMode) return false;
         if (viewModeEnabled != feed.viewModeEnabled) return false;
+        if (handlingType != feed.handlingType) return false;
 
         if (ascendingSorting != null
             ? !ascendingSorting.equals(feed.ascendingSorting)
@@ -617,6 +642,7 @@ public class UserChannel extends UserDataFeed
             ", viewModeEnabled=" + viewModeEnabled +
             ", viewMode=" + viewMode +
             ", ascendingSorting=" + ascendingSorting +
+            ", handlingType=" + handlingType +
             super.toString();
     }
 }

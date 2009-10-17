@@ -23,7 +23,8 @@
       dedupFrom,
       dedupTo,
       ascendingSorting,
-      updatePeriod
+      updatePeriod,
+      handlingType
     )
     VALUES (
       #userGuideId#,
@@ -42,7 +43,8 @@
       #dedupFrom#,
       #dedupTo#,
       #ascendingSorting#,
-      #updatePeriod#
+      #updatePeriod#,
+      #handlingType#
     )
     <selectKey resultClass="int" keyProperty="id">
       SELECT LAST_INSERT_ID() as id
